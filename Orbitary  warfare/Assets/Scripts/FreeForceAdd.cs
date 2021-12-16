@@ -3,21 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Gravitable : MonoBehaviour
+public class FreeForceAdd : MonoBehaviour
 {
+    [SerializeField] private Vector3 _freeForce;
 
-    public float Mass => _mass;
-
-    [SerializeField] private float _mass;
-    
     private Rigidbody2D _rigidbody;
 
-    private void Awake()
+    private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        AddForce(_freeForce);
     }
 
-    public void ApplyForce(Vector3 force)
+    public void AddForce(Vector3 force)
     {
         _rigidbody.AddForce(force);
     }
