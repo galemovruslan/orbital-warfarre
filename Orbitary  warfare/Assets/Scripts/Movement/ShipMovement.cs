@@ -27,17 +27,17 @@ public class ShipMovement : MonoBehaviour
 
     private void AddThrust()
     {
-        ShipControlSignals controls = _controler.GetControlSignals();
-        float thrustClamped = Mathf.Max(0, controls.thrust);
-        _rigidbody.AddRelativeForce(thrustClamped * _thrustPower * Vector3.right);
+        ShipControlSignals controlSignals = _controler.GetControlSignals();
+        float thrustNormalized = Mathf.Max(0, controlSignals.thrust);
+        _rigidbody.AddRelativeForce(thrustNormalized * _thrustPower * Vector3.right);
     }
 
     private void AddRotation()
     {
-        ShipControlSignals controls = _controler.GetControlSignals();
-        float rotationAmount = controls.rotation * _rotationSpeed * Time.deltaTime;
-        Quaternion rotation = Quaternion.Euler(0, 0, -rotationAmount);
-        transform.rotation = transform.rotation * rotation;
+        ShipControlSignals controlSignals = _controler.GetControlSignals();
+        float rotationAmount = controlSignals.rotation * _rotationSpeed * Time.deltaTime;
+        Quaternion rotationOffset = Quaternion.Euler(0, 0, -rotationAmount);
+        transform.rotation = transform.rotation * rotationOffset;
         _rigidbody.AddTorque(0);
     }
 

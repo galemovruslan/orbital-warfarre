@@ -42,8 +42,8 @@ public class Gravitator : MonoBehaviour
         float bodyDistance = Vector3.Distance(transform.position, effectedBody.transform.position);
         float force = _gravityConstant * (_mass * effectedBody.Mass) / (bodyDistance * bodyDistance + Mathf.Epsilon);
 
-        Vector3 fromEffectedBody = (transform.position - effectedBody.transform.position).normalized;
-        return fromEffectedBody * force;
+        Vector3 toThis = (transform.position - effectedBody.transform.position).normalized;
+        return toThis * force;
     }
 
 }
