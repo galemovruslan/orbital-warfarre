@@ -274,6 +274,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship
       objectReference: {fileID: 0}
+    - target: {fileID: 6897072904619092710, guid: b9f070defd1f13f4583d3b4a979b9ebe, type: 3}
+      propertyPath: _weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 4b1b521f1c15d4a45becd4893e56f22e, type: 2}
     - target: {fileID: 7555116849602654839, guid: b9f070defd1f13f4583d3b4a979b9ebe, type: 3}
       propertyPath: m_RootOrder
       value: 2

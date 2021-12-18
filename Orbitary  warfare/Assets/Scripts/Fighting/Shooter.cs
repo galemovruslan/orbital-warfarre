@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField] private Weapon _weapon;
+
+    public void Shoot(bool shoot)
     {
-        
+        if (!shoot) { return; }
+
+        _weapon.Fire(transform.position, transform.rotation);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
