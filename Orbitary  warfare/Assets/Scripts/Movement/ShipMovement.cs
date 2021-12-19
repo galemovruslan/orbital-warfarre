@@ -8,9 +8,11 @@ public class ShipMovement : MonoBehaviour
     [SerializeField] float _thrustPower = 10f;
     [SerializeField] float _rotationSpeed = 30f;
     [SerializeField] float _maxSpeed = 10f;
+    [Min(1)]
+    [SerializeField] float _damping = 1f;
+
 
     private Rigidbody2D _rigidbody;
-
     private float _currentThrust;
     private float _currentRotate;
 
@@ -26,6 +28,7 @@ public class ShipMovement : MonoBehaviour
         ConstraintSpeed();
     }
 
+
     public void Move(float thrust, float rotation)
     {
         _currentThrust = thrust;
@@ -34,8 +37,11 @@ public class ShipMovement : MonoBehaviour
 
     private void AddThrust(float thrust)
     {
-        float thrustNormalized = Mathf.Max(0, thrust);
-        _rigidbody.AddRelativeForce(thrustNormalized * _thrustPower * Vector3.right);
+        if (thrust < 0)
+        {
+            thrust /= 2;
+        }
+        _rigidbody.AddRelativeForce(thrust * _thrustPower * Vector3.right);
     }
 
     private void AddRotation(float rotation)
@@ -54,5 +60,6 @@ public class ShipMovement : MonoBehaviour
             _rigidbody.velocity = currentVelocity.normalized * _maxSpeed;
         }
     }
+
 
 }

@@ -136,7 +136,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mass: 1
-  _rigidbody: {fileID: 0}
 --- !u!114 &7329930765215182155
 MonoBehaviour:
   m_ObjectHideFlags: 0

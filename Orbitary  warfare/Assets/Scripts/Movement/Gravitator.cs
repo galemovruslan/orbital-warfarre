@@ -8,8 +8,20 @@ public class Gravitator : MonoBehaviour
 
     [SerializeField] private float _mass = 100f;
     [SerializeField] private float _gravityConstant = 1f;
+    [SerializeField] private float _effectRadius = 5f;
+    [SerializeField] private CircleCollider2D _effectCollider;
 
     private HashSet<Gravitable> effectedGravitables = new HashSet<Gravitable>();
+
+    private void OnValidate()
+    {
+        _effectCollider.radius = _effectRadius;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, _effectRadius*2);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

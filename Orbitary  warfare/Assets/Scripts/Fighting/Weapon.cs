@@ -1,27 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Weapon", menuName = "Fighting/Weapon")]
-public class Weapon : ScriptableObject
+public class Weapon : MonoBehaviour
 {
-    public float TimeBetweenShots => _fireTime;
-
-
-
-    [SerializeField] private float _fireTime = 1f;
+    [SerializeField] private WeaponItem _weaponItem;
     [SerializeField] private Projectile _projectile;
+    [SerializeField] Transform _firePoint;
 
-    private float nextFireTime = 0f;
-    
+    private float _nextFireTime = 0f;
 
-    public void Fire(Vector3 position, Quaternion direction)
+    public void Fire()
     {
-        if(Time.time >= nextFireTime)
+        if (Time.time >= _nextFireTime)
         {
-            _projectile.Fire(position, direction);
-            nextFireTime = Time.time + _fireTime;
-        } 
+            _projectile.Fire(_firePoint.position, _firePoint.rotation);
+            _nextFireTime = Time.time + _weaponItem.TimeBetweenShots;
+        }
     }
-
-
-
 }

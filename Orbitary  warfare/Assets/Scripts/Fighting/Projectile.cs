@@ -15,4 +15,6 @@ public class Projectile : ScriptableObject
         createdProjectile.velocity = createdProjectile.transform.right * _speed;
     }
 
+
+
 }

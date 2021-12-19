@@ -1,18 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponSlot : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Weapon _weapon;
 
-    // Update is called once per frame
-    void Update()
+
+
+    public void Fire()
     {
-        
+        if(_weapon == null) { return; }
+
+        _weapon.Fire();
     }
 }
