@@ -1,12 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+public enum ShooterType
+{
+    none,
+    player,
+    enemy
+}
 
 public class Shooter : MonoBehaviour
 {
+    public ShooterType Type => _shooterType;
 
-    [SerializeField] private WeaponItem _weapon;
     [SerializeField] private WeaponSlot[] _weaponSlots;
+    [SerializeField] private ShooterType _shooterType;
 
     private void Awake()
     {
@@ -19,7 +25,7 @@ public class Shooter : MonoBehaviour
 
         foreach (var weaponSlot in _weaponSlots)
         {
-            weaponSlot.Fire();
+            weaponSlot.Fire( _shooterType);
         }
     }
 

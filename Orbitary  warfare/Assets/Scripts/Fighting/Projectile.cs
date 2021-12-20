@@ -1,20 +1,40 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Projectile", menuName = "Fighting/Projectile")]
-public class Projectile : ScriptableObject
+[RequireComponent(typeof(Rigidbody2D))]
+public class Projectile : MonoBehaviour
 {
-    public float Damage => _damage;
+    private Rigidbody2D _rigidbody;
+    private float _damage;
+    private ShooterType _type;
 
-    [SerializeField] private float _damage = 1f;
-    [SerializeField] private float _speed = 1f;
-    [SerializeField] private Rigidbody2D _prefab;
 
-    public void Fire(Vector3 position, Quaternion direction)
+    private void Awake()
     {
-        var createdProjectile = Instantiate<Rigidbody2D>(_prefab, position, direction);
-        createdProjectile.velocity = createdProjectile.transform.right * _speed;
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.TryGetComponent<Shooter>(out Shooter shooter))
+        {
+            if(shooter.Type == _type) 
+            {
+                return;
+            }
+        }
 
+        if(collision.gameObject.TryGetComponent<Health>(out Health target))
+        {
+            target.TakeDamage(_damage);
+        }
+        Destroy(gameObject);
+    }
+
+    public void Launch(float speed, float damage, ShooterType shooterType)
+    {
+        _damage = damage;
+        _rigidbody.velocity = transform.right * speed;
+        _type = shooterType;
+    }
 
 }

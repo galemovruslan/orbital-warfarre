@@ -7,12 +7,10 @@ public class WeaponSlot : MonoBehaviour
 {
     [SerializeField] Weapon _weapon;
 
-
-
-    public void Fire()
+    public void Fire(ShooterType shooterType)
     {
         if(_weapon == null) { return; }
 
-        _weapon.Fire();
+        _weapon.Fire(shooterType);
     }
 }
