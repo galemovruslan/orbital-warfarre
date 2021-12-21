@@ -3,31 +3,48 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Projectile : MonoBehaviour
 {
-    private Rigidbody2D _rigidbody;
-    private float _damage;
-    private ShooterType _type;
+    public ProjectilePool Pool { private get; set; }
 
+    [SerializeField] private float _lifeTimeSeconds = 5f;
+
+    private Rigidbody2D _rigidbody;
+    private ShooterType _type;
+    private float _damage;
+    private float _lifeDuration = 0;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
     }
+    private void OnEnable()
+    {
+        _lifeDuration = 0;
+    }
+
+    private void Update()
+    {
+        _lifeDuration += Time.deltaTime;
+        if (_lifeDuration >= _lifeTimeSeconds)
+        {
+            Pool.ReturnItem(this);
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.TryGetComponent<Shooter>(out Shooter shooter))
+        if (collision.gameObject.TryGetComponent<Shooter>(out Shooter shooter))
         {
-            if(shooter.Type == _type) 
+            if (shooter.Type == _type)
             {
                 return;
             }
         }
 
-        if(collision.gameObject.TryGetComponent<Health>(out Health target))
+        if (collision.gameObject.TryGetComponent<Health>(out Health target))
         {
             target.TakeDamage(_damage);
         }
-        Destroy(gameObject);
+        Pool.ReturnItem(this);
     }
 
     public void Launch(float speed, float damage, ShooterType shooterType)

@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class ProjectilePool : MonoBehaviour
 {
-    [SerializeField] private Projectile _projectile;
     [SerializeField] private int _poolSize = 20;
 
+    private Projectile _projectile;
     private List<Projectile> _pool = new List<Projectile>();
 
-    private void Awake()
+    public Projectile GetItem(ProjectileItem projectileSO)
     {
-        for (int poolIndex = 0; poolIndex < _poolSize; poolIndex++)
+        if(_projectile == null)
         {
-            _pool.Add(AddToPool(false));
+            _projectile = projectileSO.Projectile;
+            for (int poolIndex = 0; poolIndex < _poolSize; poolIndex++)
+            {
+                _pool.Add(MakeItem(false));
+            }
+
         }
+        return GetItem();
     }
 
     public Projectile GetItem()
@@ -27,7 +33,7 @@ public class ProjectilePool : MonoBehaviour
                 return projectile;
             }
         }
-         var newProjectile = AddToPool(true);
+         var newProjectile = MakeItem(true);
         _pool.Add(newProjectile);
         return newProjectile;
     }
@@ -39,10 +45,11 @@ public class ProjectilePool : MonoBehaviour
         returnedItem.gameObject.SetActive(false);
     }
 
-    private Projectile AddToPool(bool isActive)
+    private Projectile MakeItem(bool isActive)
     {
         Projectile createdProjectile = Instantiate<Projectile>(_projectile, transform.position, transform.rotation);
         createdProjectile.gameObject.SetActive(isActive);
+        createdProjectile.Pool = this;
         return createdProjectile;
     }
 
