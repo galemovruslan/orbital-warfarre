@@ -23,6 +23,11 @@ public class Projectile : MonoBehaviour
 
     private void Update()
     {
+        UpdateLifeTime();
+    }
+
+    private void UpdateLifeTime()
+    {
         _lifeDuration += Time.deltaTime;
         if (_lifeDuration >= _lifeTimeSeconds)
         {
@@ -31,6 +36,27 @@ public class Projectile : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
+    {
+        DoDamage(collision.gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<Shooter>(out Shooter shooter))
+        {
+            if (shooter.Type == _type)
+            {
+                return;
+            }
+        }
+        if (collision.gameObject.TryGetComponent<Health>(out Health target))
+        {
+            target.TakeDamage(_damage);
+            Pool.ReturnItem(this);
+        }
+    }
+
+    private void DoDamage(GameObject collision)
     {
         if (collision.gameObject.TryGetComponent<Shooter>(out Shooter shooter))
         {
@@ -44,6 +70,7 @@ public class Projectile : MonoBehaviour
         {
             target.TakeDamage(_damage);
         }
+
         Pool.ReturnItem(this);
     }
 

@@ -28,7 +28,7 @@ public class Gravitator : MonoBehaviour
         if(collision.TryGetComponent<Gravitable>(out Gravitable gravitable))
         {
             effectedGravitables.Add(gravitable);
-            Debug.Log($"Added {gravitable.name}");
+            //Debug.Log($"Added {gravitable.name}");
         }
     }
 
@@ -37,7 +37,7 @@ public class Gravitator : MonoBehaviour
         if (collision.TryGetComponent<Gravitable>(out Gravitable gravitable))
         {
             effectedGravitables.Remove(gravitable);
-            Debug.Log($"Removed {gravitable.name}");
+            //Debug.Log($"Removed {gravitable.name}");
         }
     }
 

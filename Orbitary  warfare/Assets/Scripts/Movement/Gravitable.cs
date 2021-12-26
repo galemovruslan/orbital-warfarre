@@ -6,6 +6,8 @@ using UnityEngine;
 public class Gravitable : MonoBehaviour
 {
 
+    Vector3 _velocity = Vector3.zero;
+
     public float Mass => _mass;
 
     [SerializeField] private float _mass;
