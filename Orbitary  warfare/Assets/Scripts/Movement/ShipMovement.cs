@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class ShipMovement : MonoBehaviour
 {
+    public Vector3 Velocity => _rigidbody.velocity;
+
     [SerializeField] float _thrustPower = 10f;
     [SerializeField] float _rotationSpeed = 30f;
     [SerializeField] float _maxSpeed = 10f;

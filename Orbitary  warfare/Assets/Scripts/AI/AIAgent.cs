@@ -6,6 +6,8 @@ using UnityEngine;
 public class AIAgent : MonoBehaviour
 {
 
+    public Vector3 Velocity => _movement.Velocity;
+
     private ShipMovement _movement;
 
     private float _thrustCommand = 0;
@@ -21,10 +23,18 @@ public class AIAgent : MonoBehaviour
         _movement.Move(_thrustCommand, _rotateCommand);
     }
 
-    public void SetMove(Steering steering)
+    public void SetCommand(Steering steering)
     {
-        _thrustCommand = steering.Thrust;
-        _rotateCommand = steering.Rotation;
+        float thrustFromVelocity = Mathf.Clamp01(steering.Thrust.magnitude);
+
+        Vector3 steeringNorm = steering.Thrust.normalized;
+        float rotationDifference = Vector3.SignedAngle(steeringNorm, transform.right,  Vector3.forward);
+
+        float remapedRotation = rotationDifference.Remap(-10, 10);
+        float totalRotation = remapedRotation + steering.Rotation;
+
+        _thrustCommand = (1 - steering.Weight) * _thrustCommand + steering.Weight * thrustFromVelocity;
+        _rotateCommand = (1 - steering.Weight) * _rotateCommand + steering.Weight * totalRotation;
     }
 
 }

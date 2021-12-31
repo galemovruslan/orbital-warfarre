@@ -14,9 +14,13 @@ public class FaceBehaviour : AlignBehaviour
         _target = new GameObject($"{name}'s target Aux").transform;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
-        Destroy(_target.gameObject);
+        if (_target != null)
+        {
+            Destroy(_target.gameObject);
+
+        }
     }
 
     protected override Steering GetSteering()

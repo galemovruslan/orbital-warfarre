@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlignBehaviour : BaseBehaviour
+public class AlignBehaviour : AgentBehaviour
 {
     [SerializeField] private float _slowRangeDegrees = 10f;
 
@@ -11,7 +11,7 @@ public class AlignBehaviour : BaseBehaviour
         float rotationDiference = transform.rotation.eulerAngles.z - _target.rotation.eulerAngles.z;
         rotationDiference = MapToRotation(rotationDiference);
 
-        float t = Mathf.InverseLerp(-_slowRangeDegrees, _slowRangeDegrees, rotationDiference);
+        float t = rotationDiference.Remap(-_slowRangeDegrees, _slowRangeDegrees);
         float rotationCommand = Mathf.Lerp(-1, 1, t);
 
         var steering = new Steering();

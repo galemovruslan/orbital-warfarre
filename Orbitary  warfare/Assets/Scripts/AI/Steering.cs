@@ -1,21 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Steering
 {
-    public float Thrust { get; set; }
+    public Vector3 Thrust { get; set; }
     public float Rotation { get; set; }
+    public float Weight { get; set; }
 
     public Steering()
     {
-        Thrust = 0;
+        Thrust = Vector3.zero;
         Rotation = 0;
+        Weight = 1;
     }
 
-    public Steering(float thrust, float rotation)
+    public Steering(Vector3 thrust, float rotation)
     {
         Thrust = thrust;
         Rotation = rotation;
+        Weight = 1;
+    }
+
+    public Steering(Vector3 thrust, float rotation, float weight)
+    {
+        Thrust = thrust;
+        Rotation = rotation;
+        Weight = Mathf.Clamp01(weight);
     }
 }
