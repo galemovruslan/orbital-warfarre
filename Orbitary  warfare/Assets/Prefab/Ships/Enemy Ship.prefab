@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 6897072904619092710}
   - component: {fileID: 8844512356139439644}
   - component: {fileID: 461542992}
+  - component: {fileID: 160574848}
   m_Layer: 0
   m_Name: Enemy Ship
   m_TagString: Untagged
@@ -136,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08204793b2f4b8b4e8e7742b2ffab1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _thrustPower: 10
+  _thrustPower: 8
   _rotationSpeed: 300
   _maxSpeed: 10
 --- !u!114 &1979010668910808526
@@ -192,6 +193,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04012f84361644499d10721ca4c31a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &160574848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584083988927983303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0304b256095f68544b168c915c9685ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 0}
+  _weight: 1
+  _slowDistance: 5
+  _stopRadius: 0.5
+  _avoidRange: 9
+  _scanStart: {fileID: 2040938034029524248}
+  _rayAngleRange: 70
+  _rayAmount: 11
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  _toTargetMaxLength: 10
 --- !u!1 &6893961012956967799
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,6 +367,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aef78b2732c5c74685297aa23ff45bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2040938034029524248 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4535138938318250591, guid: 6c81362f4286afc4cac51a4de34f2cbe, type: 3}
+  m_PrefabInstance: {fileID: 2495788599562835783}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3693006794079952715
 PrefabInstance:
   m_ObjectHideFlags: 0

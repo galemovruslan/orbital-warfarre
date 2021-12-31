@@ -2,19 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turret : MonoBehaviour, ITargetHelper
+[RequireComponent(typeof(AvoidBehaviour))]
+public class SpaceShip : MonoBehaviour, ITargetHelper
 {
-    [SerializeField] Transform _defaultTarget;
+    [SerializeField] private Transform _defaultTarget;
 
-    private AgentBehaviour _behaviour;
+    AgentBehaviour _behaviour;
 
-
-    private void Start()
+    private void Awake()
     {
         _behaviour = GetComponent<AgentBehaviour>();
-        _behaviour.SetNewTarget(_defaultTarget);
+        ResetTarget();
     }
-
 
     public void ResetTarget()
     {
@@ -25,6 +24,4 @@ public class Turret : MonoBehaviour, ITargetHelper
     {
         _behaviour.SetNewTarget(newTarget);
     }
-
-
 }
