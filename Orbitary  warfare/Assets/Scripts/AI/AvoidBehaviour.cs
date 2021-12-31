@@ -16,7 +16,7 @@ public class AvoidBehaviour : SeekBehaviour
     private Transform _avoidVMarker;
 
     private Vector3 _avoidVector;
-    private float _avoidDecay = 0.66f;
+    private float _avoidDecay = 0.9f;
     
     protected override void Awake()
     {
@@ -27,7 +27,6 @@ public class AvoidBehaviour : SeekBehaviour
     protected override Steering GetSteering()
     {
         Vector3 rayStart = _scanStart.position;
-
 
         Steering steering = base.GetSteering();
         if (steering.Thrust.magnitude > _toTargetMaxLength)
@@ -46,9 +45,6 @@ public class AvoidBehaviour : SeekBehaviour
         }
         steering.Thrust += _avoidVector;
         _avoidVMarker.transform.position = transform.position + steering.Thrust;
-
-        
-        
 
         return steering;
 

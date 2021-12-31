@@ -27,7 +27,7 @@ public abstract class AgentBehaviour : MonoBehaviour
 
     protected abstract Steering GetSteering();
 
-    protected void SetNewTarget(Transform newTarget)
+    public virtual void SetNewTarget(Transform newTarget)
     {
         _target = newTarget;
     }

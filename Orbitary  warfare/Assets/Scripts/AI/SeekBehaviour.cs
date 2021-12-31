@@ -10,6 +10,11 @@ public class SeekBehaviour : AgentBehaviour
 
     protected override Steering GetSteering()
     {
+        if(_target == null) 
+        { 
+            return new Steering(); 
+        }
+
         Vector3 toTarget = _target.position - transform.position;
 
         if (toTarget.magnitude < _slowDistance)

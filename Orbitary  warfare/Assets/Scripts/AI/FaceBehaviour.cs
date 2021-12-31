@@ -34,4 +34,9 @@ public class FaceBehaviour : AlignBehaviour
         return steering;
     }
 
+    public override void SetNewTarget(Transform newTarget)
+    {
+        _faceTarget = newTarget;
+    }
+
 }
