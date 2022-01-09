@@ -59,10 +59,10 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0, y: 0}
-      - {x: 10, y: 5}
-      - {x: 14, y: 3}
-      - {x: 14, y: -3}
-      - {x: 10, y: -5}
+      - {x: 10, y: 10}
+      - {x: 18, y: 7}
+      - {x: 18, y: -7}
+      - {x: 10, y: -10}
 --- !u!50 &2582764581284831040
 Rigidbody2D:
   serializedVersion: 4

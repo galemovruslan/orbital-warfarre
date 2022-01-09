@@ -6,6 +6,7 @@ using UnityEngine;
 public class ShipMovement : MonoBehaviour
 {
     public Vector3 Velocity => _rigidbody.velocity;
+    public Vector3 Position => transform.position;
 
     [SerializeField] float _thrustPower = 10f;
     [SerializeField] float _rotationSpeed = 30f;

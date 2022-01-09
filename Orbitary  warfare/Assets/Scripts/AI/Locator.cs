@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Locator : MonoBehaviour
 {
-    private ITargetHelper _agentBehavoiur;
+    private ITargetHelper _targetHelper;
 
     private void Awake()
     {
-        _agentBehavoiur = GetComponentInParent<ITargetHelper>();
+        _targetHelper = GetComponentInParent<ITargetHelper>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.TryGetComponent<PlayerControl>(out var playerControl ) )
         {
-            _agentBehavoiur.SetTarget(collision.transform);
+            _targetHelper.SetTarget(collision.transform);
         }
     }
 
@@ -23,7 +23,7 @@ public class Locator : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<PlayerControl>(out var playerControl))
         {
-            _agentBehavoiur.ResetTarget();
+            _targetHelper.ResetTarget();
         }
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConstrainOrientation : MonoBehaviour
+public class ConstraintOrientation : MonoBehaviour
 {
     [SerializeField] private float _angleMax = 45f;
 
