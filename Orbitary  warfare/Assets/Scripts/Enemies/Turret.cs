@@ -8,17 +8,15 @@ public class Turret : MonoBehaviour, ITargetHelper
     [SerializeField] private Transform _defaultTarget;
     [SerializeField] private float _predictionTime = 0f;
 
-    private bool hasTarget = false;
-
     private Transform _targetPoint; // Goal for _behaviour
     private Transform _targetObject; // target's game object transform
-    private AgentBehaviour _behaviour;
     private Predictor _predictor;
     private ShipMovement _targetMovement;
+    private AgentBehaviour _behaviour;
 
     private void Awake()
     {
-        _targetPoint = new GameObject("Target").transform;
+        _targetPoint = new GameObject("Turrent's target").transform;
         _targetObject = _defaultTarget;
 
         ShipMovement shipMovement = GetComponent<ShipMovement>();
