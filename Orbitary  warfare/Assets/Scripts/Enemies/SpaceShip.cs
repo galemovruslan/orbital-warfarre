@@ -11,7 +11,6 @@ public class SpaceShip : MonoBehaviour, ITargetHelper
     AgentBehaviour _behaviour;
     private Transform _targetPoint; // Goal for _behaviour
     private Transform _targetObject; // target's game object transform
-    private Predictor _predictor;
     private ShipMovement _targetMovement;
 
     private void Awake()
@@ -20,7 +19,6 @@ public class SpaceShip : MonoBehaviour, ITargetHelper
         _targetObject = _defaultTarget;
 
         ShipMovement shipMovement = GetComponent<ShipMovement>();
-        _predictor = new Predictor();
     }
 
     private void Start()
@@ -36,7 +34,7 @@ public class SpaceShip : MonoBehaviour, ITargetHelper
 
         if (_targetMovement == null) { return; }
 
-        Vector3 nextShipPosition = _predictor.Predict(_targetMovement.Position, _targetMovement.Velocity, _predictionTime);
+        Vector3 nextShipPosition = Predictor.Predict(_targetMovement.Position, _targetMovement.Velocity, _predictionTime);
         _targetPoint.position = nextShipPosition;
 
     }

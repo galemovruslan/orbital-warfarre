@@ -10,9 +10,9 @@ public class Turret : MonoBehaviour, ITargetHelper
 
     private Transform _targetPoint; // Goal for _behaviour
     private Transform _targetObject; // target's game object transform
-    private Predictor _predictor;
     private ShipMovement _targetMovement;
     private AgentBehaviour _behaviour;
+    private AIShooter _shooter;
 
     private void Awake()
     {
@@ -20,7 +20,8 @@ public class Turret : MonoBehaviour, ITargetHelper
         _targetObject = _defaultTarget;
 
         ShipMovement shipMovement = GetComponent<ShipMovement>();
-        _predictor = new Predictor();
+
+        _shooter = GetComponent<AIShooter>();
     }
 
     private void Start()
@@ -32,12 +33,18 @@ public class Turret : MonoBehaviour, ITargetHelper
 
     private void Update()
     {
-        _targetPoint.position = _targetObject.position;
 
-        if (_targetMovement == null) { return; }
+        if (_targetMovement == null)
+        {
+            _targetPoint.position = _targetObject.position;
+        }
+        else
+        {
+            Vector3 nextShipPosition = Predictor.Predict(_targetMovement.Position, _targetMovement.Velocity, _predictionTime);
+            _targetPoint.position = nextShipPosition;
 
-        Vector3 nextShipPosition = _predictor.Predict(_targetMovement.Position, _targetMovement.Velocity, _predictionTime);
-        _targetPoint.position = nextShipPosition;
+            _shooter.TryShoot(nextShipPosition);
+        }
 
     }
 

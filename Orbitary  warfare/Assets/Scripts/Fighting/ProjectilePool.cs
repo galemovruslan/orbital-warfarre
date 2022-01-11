@@ -7,18 +7,37 @@ public class ProjectilePool : MonoBehaviour
     [SerializeField] private int _poolSize = 20;
 
     private Projectile _projectile;
-    private List<Projectile> _pool = new List<Projectile>();
+    private List<Projectile> _pool;
+    private bool _initialized = false;
+
+    private void OnEnable()
+    {
+         _pool = new List<Projectile>();
+        _initialized = false;
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var item in _pool)
+        {
+            if(item != null)
+            {
+                Destroy(item.gameObject);
+            }
+        }
+        _pool.Clear();
+    }
 
     public Projectile GetItem(ProjectileItem projectileSO)
     {
-        if(_projectile == null)
+        if(!_initialized)
         {
             _projectile = projectileSO.Projectile;
             for (int poolIndex = 0; poolIndex < _poolSize; poolIndex++)
             {
                 _pool.Add(MakeItem(false));
             }
-
+            _initialized = true;
         }
         return GetItem();
     }
