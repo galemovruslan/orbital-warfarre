@@ -6,10 +6,16 @@ public class ConstraintOrientation : MonoBehaviour
 {
     [SerializeField] private float _angleMax = 45f;
 
+    private Vector3 _startRotation;
+    private void Awake()
+    {
+        _startRotation = transform.rotation.eulerAngles;
+    }
+
     private void LateUpdate()
     {
-        Quaternion minRotation = Quaternion.Euler(0, 0, -_angleMax);
-        Quaternion maxRotation = Quaternion.Euler(0, 0, _angleMax);
+        Quaternion minRotation = Quaternion.Euler(0, 0, _startRotation.z - _angleMax);
+        Quaternion maxRotation = Quaternion.Euler(0, 0, _startRotation.z + _angleMax);
 
         Quaternion currentOrientation = transform.rotation;
 

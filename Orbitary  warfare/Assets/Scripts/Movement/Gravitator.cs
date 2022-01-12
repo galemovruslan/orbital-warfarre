@@ -5,27 +5,34 @@ using UnityEngine;
 
 public class Gravitator : MonoBehaviour
 {
-
+    [Header("Gravity effect")]
     [SerializeField] private float _mass = 100f;
     [SerializeField] private float _gravityConstant = 1f;
+    [Header("Effected area")]
     [SerializeField] private float _effectRadius = 5f;
     [SerializeField] private CircleCollider2D _effectCollider;
+    [Header("Visuals")]
+    [SerializeField] private float _surfaceRadius = 1f;
+    [SerializeField] private Transform _visuals;
+    [SerializeField] private CircleCollider2D _surfaceCollider;
 
     private HashSet<Gravitable> effectedGravitables = new HashSet<Gravitable>();
 
     private void OnValidate()
     {
         _effectCollider.radius = _effectRadius;
+        _surfaceCollider.radius = _surfaceRadius / 2;
+        _visuals.localScale = new Vector3(_surfaceRadius, _surfaceRadius, 1);
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(transform.position, _effectRadius*2);
+        Gizmos.DrawWireSphere(transform.position, _effectRadius );
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent<Gravitable>(out Gravitable gravitable))
+        if (collision.TryGetComponent<Gravitable>(out Gravitable gravitable))
         {
             effectedGravitables.Add(gravitable);
             if (collision.TryGetComponent<Health>(out Health health))
