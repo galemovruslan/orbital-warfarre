@@ -28,7 +28,10 @@ public class Gravitator : MonoBehaviour
         if(collision.TryGetComponent<Gravitable>(out Gravitable gravitable))
         {
             effectedGravitables.Add(gravitable);
-            //Debug.Log($"Added {gravitable.name}");
+            if (collision.TryGetComponent<Health>(out Health health))
+            {
+                health.onDestroy += DeleteFromEffected;
+            }
         }
     }
 
@@ -37,7 +40,10 @@ public class Gravitator : MonoBehaviour
         if (collision.TryGetComponent<Gravitable>(out Gravitable gravitable))
         {
             effectedGravitables.Remove(gravitable);
-            //Debug.Log($"Removed {gravitable.name}");
+            if (collision.TryGetComponent<Health>(out Health health))
+            {
+                health.onDestroy -= DeleteFromEffected;
+            }
         }
     }
 
@@ -56,6 +62,11 @@ public class Gravitator : MonoBehaviour
 
         Vector3 toThis = (transform.position - effectedBody.transform.position).normalized;
         return toThis * force;
+    }
+
+    private void DeleteFromEffected(GameObject go)
+    {
+        effectedGravitables.Remove(go.GetComponent<Gravitable>());
     }
 
 }

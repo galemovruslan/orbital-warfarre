@@ -12,6 +12,7 @@ public class SpaceShip : MonoBehaviour, ITargetHelper
     private Transform _targetPoint; // Goal for _behaviour
     private Transform _targetObject; // target's game object transform
     private ShipMovement _targetMovement;
+    private AIShooter _shooter;
 
     private void Awake()
     {
@@ -19,6 +20,8 @@ public class SpaceShip : MonoBehaviour, ITargetHelper
         _targetObject = _defaultTarget;
 
         ShipMovement shipMovement = GetComponent<ShipMovement>();
+        
+        _shooter = GetComponent<AIShooter>();
     }
 
     private void Start()
@@ -30,12 +33,19 @@ public class SpaceShip : MonoBehaviour, ITargetHelper
 
     private void Update()
     {
-        _targetPoint.position = _targetObject.position;
+        if(_targetObject == null) { return; }
 
-        if (_targetMovement == null) { return; }
+        if (_targetMovement == null)
+        {
+            _targetPoint.position = _targetObject.position;
+        }
+        else
+        {
+            Vector3 nextShipPosition = Predictor.Predict(_targetMovement.Position, _targetMovement.Velocity, _predictionTime);
+            _targetPoint.position = nextShipPosition;
 
-        Vector3 nextShipPosition = Predictor.Predict(_targetMovement.Position, _targetMovement.Velocity, _predictionTime);
-        _targetPoint.position = nextShipPosition;
+            _shooter.TryShoot(nextShipPosition);
+        }
 
     }
 

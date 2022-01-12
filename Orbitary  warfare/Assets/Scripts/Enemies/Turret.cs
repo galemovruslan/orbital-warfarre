@@ -33,6 +33,7 @@ public class Turret : MonoBehaviour, ITargetHelper
 
     private void Update()
     {
+        if (_targetObject == null) { return; }
 
         if (_targetMovement == null)
         {

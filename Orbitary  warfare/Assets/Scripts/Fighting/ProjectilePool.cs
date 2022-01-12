@@ -6,13 +6,16 @@ public class ProjectilePool : MonoBehaviour
 {
     [SerializeField] private int _poolSize = 20;
 
+    private readonly string _parentName = "Projectile Storage";
+
+    private GameObject _itemParent;
     private Projectile _projectile;
     private List<Projectile> _pool;
     private bool _initialized = false;
 
     private void OnEnable()
     {
-         _pool = new List<Projectile>();
+        _pool = new List<Projectile>();
         _initialized = false;
     }
 
@@ -20,7 +23,7 @@ public class ProjectilePool : MonoBehaviour
     {
         foreach (var item in _pool)
         {
-            if(item != null)
+            if (item != null)
             {
                 Destroy(item.gameObject);
             }
@@ -30,8 +33,13 @@ public class ProjectilePool : MonoBehaviour
 
     public Projectile GetItem(ProjectileItem projectileSO)
     {
-        if(!_initialized)
+        if (!_initialized)
         {
+            _itemParent = GameObject.Find(_parentName);
+            if (_itemParent == null)
+            {
+                _itemParent = new GameObject(_parentName);
+            }
             _projectile = projectileSO.Projectile;
             for (int poolIndex = 0; poolIndex < _poolSize; poolIndex++)
             {
@@ -52,7 +60,7 @@ public class ProjectilePool : MonoBehaviour
                 return projectile;
             }
         }
-         var newProjectile = MakeItem(true);
+        var newProjectile = MakeItem(true);
         _pool.Add(newProjectile);
         return newProjectile;
     }
@@ -66,7 +74,7 @@ public class ProjectilePool : MonoBehaviour
 
     private Projectile MakeItem(bool isActive)
     {
-        Projectile createdProjectile = Instantiate<Projectile>(_projectile, transform.position, transform.rotation);
+        Projectile createdProjectile = Instantiate<Projectile>(_projectile, transform.position, transform.rotation, _itemParent.transform);
         createdProjectile.gameObject.SetActive(isActive);
         createdProjectile.Pool = this;
         return createdProjectile;

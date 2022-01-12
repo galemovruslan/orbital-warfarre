@@ -6,6 +6,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public event Action<float, float> OnHealthChanged;
+    public event Action<GameObject> onDestroy;
 
     [SerializeField] private float _maxHealth;
 
@@ -23,6 +24,7 @@ public class Health : MonoBehaviour
 
         if(_health <= 0)
         {
+            onDestroy?.Invoke(this.gameObject);
             Destroy(gameObject);
         }
     }
