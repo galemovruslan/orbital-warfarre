@@ -30,7 +30,7 @@ public class AIAgent : MonoBehaviour
         Vector3 steeringNorm = steering.Thrust.normalized;
         float rotationDifference = Vector3.SignedAngle(steeringNorm, transform.right,  Vector3.forward);
 
-        float remapedRotation = rotationDifference.Remap(-10, 10);
+        float remapedRotation = rotationDifference.Remap(-5, 5);
         float totalRotation = remapedRotation + steering.Rotation;
 
         _thrustCommand = (1 - steering.Weight) * _thrustCommand + steering.Weight * thrustFromVelocity;

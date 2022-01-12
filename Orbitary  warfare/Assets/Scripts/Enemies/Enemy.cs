@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, ITargetHelper
 {
-    [SerializeField] private Transform _defaultTarget;
+    [SerializeField] protected Transform _defaultTarget;
     [SerializeField] private float _predictionTime = 0f;
 
     private Transform _targetPoint; // Goal for _behaviour
@@ -13,12 +13,10 @@ public class Enemy : MonoBehaviour, ITargetHelper
     private AgentBehaviour _behaviour;
     private AIShooter _shooter;
 
-    private void Awake()
+    protected virtual void Awake()
     {
-        _defaultTarget = new GameObject($"{name}'s default target").transform;
-        _defaultTarget.position = new Vector3(transform.position.x, transform.position.y, transform.position.z) + transform.right * 10;
-
-        _targetPoint = new GameObject("Turrent's target").transform;
+        
+        _targetPoint = new GameObject("Enemy's target").transform;
         _targetObject = _defaultTarget;
 
         ShipMovement shipMovement = GetComponent<ShipMovement>();
