@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d1c15188eaa09a44b646d78b1c2c0bb, type: 3}
-  m_Name: ShieldStock
+  m_Script: {fileID: 11500000, guid: 94b6a44a37fa5aa4b8c4c9e93ea3e53d, type: 3}
+  m_Name: Stock Shields
   m_EditorClassIdentifier: 
   _stock:
   - {fileID: 11400000, guid: ff88dc45890e60746a8be1bb84e4d848, type: 2}

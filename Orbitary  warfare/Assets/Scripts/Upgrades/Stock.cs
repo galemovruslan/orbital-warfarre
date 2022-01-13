@@ -6,7 +6,7 @@ public class Stock : MonoBehaviour
 {
     public static Stock Instance { get; private set; }
 
-    [SerializeField] private StockItem _shields;
+    [SerializeField] private StockShields _shields;
 
     private void Awake()
     {
@@ -20,13 +20,6 @@ public class Stock : MonoBehaviour
         }
 
     }
-
-    [ContextMenu("Get 2")]
-    public void PeakItem2()
-    {
-        Debug.Log(GetShield(2).name);
-    }
-
 
     public ShieldItem GetShield(int level)
     {
