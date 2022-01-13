@@ -37,7 +37,7 @@ public class Gravitator : MonoBehaviour
             effectedGravitables.Add(gravitable);
             if (collision.TryGetComponent<Health>(out Health health))
             {
-                health.onDestroy += DeleteFromEffected;
+                health.OnDestroy += DeleteFromEffected;
             }
         }
     }
@@ -49,7 +49,7 @@ public class Gravitator : MonoBehaviour
             effectedGravitables.Remove(gravitable);
             if (collision.TryGetComponent<Health>(out Health health))
             {
-                health.onDestroy -= DeleteFromEffected;
+                health.OnDestroy -= DeleteFromEffected;
             }
         }
     }

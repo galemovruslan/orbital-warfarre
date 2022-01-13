@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour, IDamageable
 {
-    public event Action<float, float> OnHealthChanged;
-    public event Action<GameObject> onDestroy;
+    public event Action<float, float> OnTakeDamage;
+    public event Action<GameObject> OnDestroy;
 
     [SerializeField] private float _maxHealth;
 
@@ -20,11 +20,11 @@ public class Health : MonoBehaviour
     public void TakeDamage(float amount)
     {
         _health -= amount;
-        OnHealthChanged?.Invoke(_health, _maxHealth);
+        OnTakeDamage?.Invoke(_health, _maxHealth);
 
         if(_health <= 0)
         {
-            onDestroy?.Invoke(this.gameObject);
+            OnDestroy?.Invoke(this.gameObject);
             Destroy(gameObject);
         }
     }

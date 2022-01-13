@@ -14,9 +14,9 @@ public class HealthBar : MonoBehaviour
         _health = GetComponentInParent<Health>();
     }
 
-    private void OnEnable() => _health.OnHealthChanged += UpdateBar;
+    private void OnEnable() => _health.OnTakeDamage += UpdateBar;
 
-    private void OnDisable() => _health.OnHealthChanged -= UpdateBar;
+    private void OnDisable() => _health.OnTakeDamage -= UpdateBar;
 
     private void Update()
     {
