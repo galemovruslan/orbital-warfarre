@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="New Shield", menuName ="Fighting/Shield")]
+[CreateAssetMenu(fileName ="New Shield", menuName ="Upgrades/Shield")]
 public class ShieldItem : ScriptableObject
 {
     [SerializeField] int _level;

@@ -9,7 +9,7 @@ public class ConstraintOrientation : MonoBehaviour
     private Vector3 _startRotation;
     private void Awake()
     {
-        _startRotation = transform.rotation.eulerAngles;
+        _startRotation = transform.localRotation.eulerAngles;
     }
 
     private void LateUpdate()
@@ -17,7 +17,7 @@ public class ConstraintOrientation : MonoBehaviour
         Quaternion minRotation = Quaternion.Euler(0, 0, _startRotation.z - _angleMax);
         Quaternion maxRotation = Quaternion.Euler(0, 0, _startRotation.z + _angleMax);
 
-        Quaternion currentOrientation = transform.rotation;
+        Quaternion currentOrientation = transform.localRotation;
 
         if(currentOrientation.z > maxRotation.z)
         {

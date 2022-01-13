@@ -33,18 +33,21 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent<Shooter>(out Shooter shooter))
-        {
-            if (shooter.Type == _type)
-            {
-                return;
-            }
-        }
-        if (collision.gameObject.TryGetComponent<Health>(out Health target))
-        {
-            target.TakeDamage(_damage);
-            Pool.ReturnItem(this);
-        }
+        DoDamage(collision.gameObject, true);
+        /*
+         if (collision.gameObject.TryGetComponent<Shooter>(out Shooter shooter))
+         {
+             if (shooter.Type == _type)
+             {
+                 return;
+             }
+         }
+         if (collision.gameObject.TryGetComponent<Health>(out Health target))
+         {
+             target.TakeDamage(_damage);
+             Pool.ReturnItem(this);
+         }
+         */
     }
 
     private void UpdateLifeTime()
@@ -66,7 +69,7 @@ public class Projectile : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.TryGetComponent<Health>(out Health target))
+        if (collision.gameObject.TryGetComponent<IDamageable>(out IDamageable target))
         {
             target.TakeDamage(_damage);
             if (isTrigger)
@@ -75,8 +78,10 @@ public class Projectile : MonoBehaviour
                 return;
             }
         }
-
-        Pool.ReturnItem(this);
+        if (!isTrigger)
+        {
+            Pool.ReturnItem(this);
+        }
     }
 
     public void Launch(float speed, float damage, ShooterType shooterType)

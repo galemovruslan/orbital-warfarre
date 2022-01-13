@@ -8,6 +8,20 @@ public class Shield : MonoBehaviour, IDamageable
     public event Action<float, float> OnTakeDamage;
     public event Action<GameObject> OnDestroy;
 
+    public int Level {
+        get
+        {
+            if (_currentShield == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return _currentShield.Level;
+            }
+        } 
+    }
+
     [SerializeField] private ShieldItem _currentShield;
 
     private SpriteRenderer _renderer;
