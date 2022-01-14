@@ -12,12 +12,14 @@ public class ShieldUpgrade : Upgrade
         {
             return;
         }
+        
+        ShieldItem upgradedShield = Stock.Instance.GetShield(UpgradeType.Shield, shield.Level + 1) as ShieldItem;
 
-        ShieldItem upgradedShield = Stock.Instance.GetShield(shield.Level + 1);
         if(upgradedShield == null)
         {
             return;
         }
         shield.SetShield(upgradedShield);
+        
     }
 }
