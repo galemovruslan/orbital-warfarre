@@ -7,7 +7,7 @@ public enum ShooterType
     enemy
 }
 
-public class Shooter : MonoBehaviour
+public class Shooter : MonoBehaviour, IHaveShooterType
 {
     public ShooterType Type => _shooterType;
 

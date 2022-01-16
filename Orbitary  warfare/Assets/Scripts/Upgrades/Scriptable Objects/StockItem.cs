@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Upgrades/Default Stock")]
-public class StockItem : ScriptableObject
-{
-    public UpgradeType Type = UpgradeType.None;
-    [SerializeField] private List<ScriptableObject> _stock = new List<ScriptableObject>();
 
-    public ScriptableObject GetItem(int level)
+public abstract class StockItem<T> : ScriptableObject where T : UpgradableItem
+{
+    public int MaxLevel => _stock.Count;
+
+    [SerializeField] private List<T> _stock = new List<T>();
+
+    public T GetItem(int level)
     {
         int listIndex = level - 1;
         if (listIndex < 0 || listIndex >= _stock.Count)
         {
-            return null;
+            return default(T);
         }
         return _stock[listIndex];
     }

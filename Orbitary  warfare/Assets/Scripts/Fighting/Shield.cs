@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shield : MonoBehaviour, IDamageable
+public class Shield : MonoBehaviour, IDamageable, IHaveShooterType
 {
     public event Action<float, float> OnTakeDamage;
     public event Action<GameObject> OnDestroy;
 
-    public int Level {
+    public ShooterType Type { get; private set; }
+    public int Level
+    {
         get
         {
             if (_currentShield == null)
@@ -17,12 +19,14 @@ public class Shield : MonoBehaviour, IDamageable
             }
             else
             {
-                return _currentShield.Level;
+                return _level;
             }
-        } 
+        }
     }
+    [SerializeField] private ShieldStock _currentStock;
+    [SerializeField] private int _level;
 
-    [SerializeField] private ShieldItem _currentShield;
+    private ShieldItem _currentShield;
 
     private SpriteRenderer _renderer;
     private CircleCollider2D _collider;
@@ -32,8 +36,18 @@ public class Shield : MonoBehaviour, IDamageable
     {
         _renderer = GetComponentInChildren<SpriteRenderer>();
         _collider = GetComponent<CircleCollider2D>();
+        Type = GetComponentInParent<Shooter>().Type;
 
-        Enable();
+
+        if (_level == 0)
+        {
+            Disable();
+        }
+        else
+        {
+            SetShield(_currentStock.GetItem(_level));
+            Enable();
+        }
     }
 
 
@@ -53,7 +67,24 @@ public class Shield : MonoBehaviour, IDamageable
         }
     }
 
-    public void SetShield(ShieldItem shield)
+    public void SetNewProgression(ShieldStock newShield, int level)
+    {
+        _currentStock = newShield;
+        _level = level;
+        SetShield(newShield.GetItem(_level));
+    }
+
+    public void LevelUp()
+    {
+        if (_level >= _currentStock.MaxLevel)
+        {
+            return;
+        }
+        _level++;
+        SetShield(_currentStock.GetItem(_level));
+    }
+
+    private void SetShield(ShieldItem shield)
     {
         _currentShield = shield;
         Enable();

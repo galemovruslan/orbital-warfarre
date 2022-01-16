@@ -145,52 +145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f090ace37ec22114eb6fa62b1af8cb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &465405577
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 465405579}
-  - component: {fileID: 465405578}
-  m_Layer: 0
-  m_Name: Stock
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &465405578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 465405577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 481817f3eea5be544ba021791352311e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _items:
-  - Type: 2
-    Item: {fileID: 11400000, guid: 4561320311d1c8945972e897e0a0d6ef, type: 2}
---- !u!4 &465405579
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 465405577}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &948841299
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +287,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1201277898
 Rigidbody2D:
@@ -528,6 +482,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8844512356962229863, guid: b9f070defd1f13f4583d3b4a979b9ebe, type: 3}
+      propertyPath: _level
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512356962229863, guid: b9f070defd1f13f4583d3b4a979b9ebe, type: 3}
+      propertyPath: _currentStock
+      value: 
+      objectReference: {fileID: 11400000, guid: f9e05b7c1062f9c4aaea22d6c031963e, type: 2}
     - target: {fileID: 8844512356962229863, guid: b9f070defd1f13f4583d3b4a979b9ebe, type: 3}
       propertyPath: _currentShield
       value: 

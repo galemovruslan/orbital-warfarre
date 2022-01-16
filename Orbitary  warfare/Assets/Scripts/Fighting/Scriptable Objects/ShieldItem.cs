@@ -1,14 +1,19 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="New Shield", menuName ="Upgrades/Shield")]
-public class ShieldItem : ScriptableObject
+public class ShieldItem : UpgradableItem
 {
-    [SerializeField] int _level;
     [SerializeField] private Sprite _sprite;
     [SerializeField] private float _durability;
+    [SerializeField] private ShieldItemType _type;
 
-    public int Level { get =>_level; }
     public Sprite Sprite { get => _sprite; }
     public float Durability { get => _durability; }
+    public ShieldItemType Type { get => _type; }
+}
 
+public enum ShieldItemType
+{
+    Balistic,
+    Energy
 }

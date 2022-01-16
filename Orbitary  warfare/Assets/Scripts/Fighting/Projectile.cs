@@ -28,26 +28,12 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        DoDamage(collision.gameObject, false);
+        DoDamage(collision.gameObject, isTrigger: false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        DoDamage(collision.gameObject, true);
-        /*
-         if (collision.gameObject.TryGetComponent<Shooter>(out Shooter shooter))
-         {
-             if (shooter.Type == _type)
-             {
-                 return;
-             }
-         }
-         if (collision.gameObject.TryGetComponent<Health>(out Health target))
-         {
-             target.TakeDamage(_damage);
-             Pool.ReturnItem(this);
-         }
-         */
+        DoDamage(collision.gameObject, isTrigger: true);
     }
 
     private void UpdateLifeTime()
@@ -61,9 +47,9 @@ public class Projectile : MonoBehaviour
 
     private void DoDamage(GameObject collision, bool isTrigger)
     {
-        if (collision.gameObject.TryGetComponent<Shooter>(out Shooter shooter))
+        if (collision.gameObject.TryGetComponent<IHaveShooterType>(out IHaveShooterType typed))
         {
-            if (shooter.Type == _type)
+            if (typed.Type == _type)
             {
                 return;
             }
