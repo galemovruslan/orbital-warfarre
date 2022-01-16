@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _level: 2
   _sprite: {fileID: 21300000, guid: b00db2e4f856f7e4ba35b8df61c5ddf4, type: 3}
+  _color: {r: 0.011764706, g: 1, b: 0, a: 1}
   _durability: 2
+  _type: 0

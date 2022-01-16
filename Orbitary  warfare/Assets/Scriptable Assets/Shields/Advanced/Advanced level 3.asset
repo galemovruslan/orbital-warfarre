@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 732c5b5d768d9cc4485c2fb6abad8c1b, type: 3}
-  m_Name: Shield Lvl 1
+  m_Name: Advanced level 3
   m_EditorClassIdentifier: 
-  _level: 1
-  _sprite: {fileID: 21300000, guid: 928bee6631fc74a4ba31f3f11b724b93, type: 3}
-  _color: {r: 0.013375282, g: 1, b: 0, a: 1}
-  _durability: 1
+  _level: 2
+  _sprite: {fileID: 21300000, guid: 5cd56762f86ede149b0b2ea7c4ccbc69, type: 3}
+  _color: {r: 1, g: 0, b: 0, a: 1}
+  _durability: 6
   _type: 0

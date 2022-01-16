@@ -482,14 +482,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8844512355794440417, guid: b9f070defd1f13f4583d3b4a979b9ebe, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512355794440417, guid: b9f070defd1f13f4583d3b4a979b9ebe, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512355794440417, guid: b9f070defd1f13f4583d3b4a979b9ebe, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8844512356962229863, guid: b9f070defd1f13f4583d3b4a979b9ebe, type: 3}
       propertyPath: _level
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8844512356962229863, guid: b9f070defd1f13f4583d3b4a979b9ebe, type: 3}
       propertyPath: _currentStock
       value: 
-      objectReference: {fileID: 11400000, guid: f9e05b7c1062f9c4aaea22d6c031963e, type: 2}
+      objectReference: {fileID: 11400000, guid: 668f25001b0023741a151e3ed72f17a2, type: 2}
     - target: {fileID: 8844512356962229863, guid: b9f070defd1f13f4583d3b4a979b9ebe, type: 3}
       propertyPath: _currentShield
       value: 

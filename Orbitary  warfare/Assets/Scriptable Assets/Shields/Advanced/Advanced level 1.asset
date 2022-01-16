@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Advanced level 1
   m_EditorClassIdentifier: 
   _level: 1
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 928bee6631fc74a4ba31f3f11b724b93, type: 3}
+  _color: {r: 1, g: 0, b: 0, a: 1}
   _durability: 2
   _type: 0

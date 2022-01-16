@@ -104,6 +104,7 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType
         }
         _collider.enabled = true;
         _renderer.sprite = _currentShield.Sprite;
+        _renderer.color = _currentShield.ShieldColor;
         _durability = _currentShield.Durability;
     }
 }
