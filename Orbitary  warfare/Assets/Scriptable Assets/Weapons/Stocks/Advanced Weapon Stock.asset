@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebf5e285ce98cf14bbf0599336a95e87, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d1c15188eaa09a44b646d78b1c2c0bb, type: 3}
   m_Name: Advanced Weapon Stock
   m_EditorClassIdentifier: 
+  _type: 1
   _stock:
   - {fileID: 11400000, guid: 9dfb29eb72a33b24fba83a08dc30f3c1, type: 2}
   - {fileID: 11400000, guid: 0c770560cf2e498409b02b1fd4223de3, type: 2}

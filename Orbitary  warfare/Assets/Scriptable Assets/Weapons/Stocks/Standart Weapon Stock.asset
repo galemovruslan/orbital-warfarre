@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebf5e285ce98cf14bbf0599336a95e87, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d1c15188eaa09a44b646d78b1c2c0bb, type: 3}
   m_Name: Standart Weapon Stock
   m_EditorClassIdentifier: 
+  _type: 1
   _stock:
   - {fileID: 11400000, guid: 4b1b521f1c15d4a45becd4893e56f22e, type: 2}
   - {fileID: 11400000, guid: 31656a2d65ea10240854868d2d677520, type: 2}

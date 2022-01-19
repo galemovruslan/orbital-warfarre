@@ -4,7 +4,12 @@ using UnityEngine;
 
 public abstract class UpgradableItem : ScriptableObject
 {
-    [SerializeField] protected int _level;
     public int Level { get => _level; }
+    public Color Color { get => _color; }
+    public Sprite Sprite { get => _sprite; }
+
+    [SerializeField] protected int _level;
+    [SerializeField] private Sprite _sprite;
+    [SerializeField] private Color _color;
 
 }

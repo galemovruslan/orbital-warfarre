@@ -6,6 +6,7 @@ public class ShieldUpgrader : UpgraderBase
         if(upgradable.TryGetComponent<Shield>(out var shield))
         {
             shield.LevelUp();
+            Destroy(gameObject);
         }
 
     }

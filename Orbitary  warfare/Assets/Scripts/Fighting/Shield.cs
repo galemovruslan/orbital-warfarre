@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shield : MonoBehaviour, IDamageable, IHaveShooterType
+public class Shield : MonoBehaviour, IDamageable, IHaveShooterType, ISwapProgression
 {
     public event Action<float, float> OnTakeDamage;
     public event Action<GameObject> OnDestroy;
@@ -24,7 +24,7 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType
         }
     }
 
-    [SerializeField] private ShieldStock _currentStock;
+    [SerializeField] private ProgressionItem _currentStock;
     [SerializeField] private int _level;
 
     private ShieldItem _currentShield;
@@ -46,11 +46,19 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType
         }
         else
         {
-            SetShield(_currentStock.GetItem(_level));
+            SetShield(_currentStock.GetItem(_level) as ShieldItem);
             Enable();
         }
     }
 
+    private void OnValidate()
+    {
+        if(_currentStock != null &&
+            _currentStock.Type != ProgressionItem.ItemType.Shield)
+        {
+            _currentStock = null;
+        }
+    }
 
     public void TakeDamage(float amount)
     {
@@ -68,11 +76,13 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType
         }
     }
 
-    public void SetNewProgression(ShieldStock newShield, int level)
+    public void SetNewProgression(ProgressionItem newShield, int level)
     {
+        if(newShield.Type != ProgressionItem.ItemType.Shield) { return; }
+
         _currentStock = newShield;
         _level = level;
-        SetShield(newShield.GetItem(_level));
+        SetShield(newShield.GetItem(_level) as ShieldItem);
     }
 
     public void LevelUp()
@@ -82,7 +92,7 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType
             return;
         }
         _level++;
-        SetShield(_currentStock.GetItem(_level));
+        SetShield(_currentStock.GetItem(_level) as ShieldItem);
     }
 
     private void SetShield(ShieldItem shield)
@@ -105,7 +115,7 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType
         }
         _collider.enabled = true;
         _renderer.sprite = _currentShield.Sprite;
-        _renderer.color = _currentShield.ShieldColor;
+        _renderer.color = _currentShield.Color;
         _durability = _currentShield.Durability;
     }
 }

@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    private WeaponStock _weaponItems;
-    private ShieldStock _shieldItems;
+    private ProgressionItem _items;
     private SpriteRenderer _renderer;
     private Rigidbody2D _rb;
 
@@ -15,16 +13,16 @@ public class PickUp : MonoBehaviour
         _renderer = GetComponentInChildren<SpriteRenderer>();
     }
 
-    public void Init(ShieldStock stock, Sprite icon)
+    public void Init(ProgressionItem stock, Sprite icon)
     {
-        _shieldItems = stock;
+        _items = stock;
         _renderer.sprite = icon;
         _rb.velocity = Random.insideUnitCircle.normalized;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        bool isUsed = TryPickupShield(collision.gameObject);
+        bool isUsed = TryPickup(collision.gameObject);
 
         if (isUsed)
         {
@@ -32,13 +30,49 @@ public class PickUp : MonoBehaviour
         }
     }
 
-    private bool TryPickupShield(GameObject pickUper)
+    private bool TryPickup(GameObject gameObject)
     {
-        if (_shieldItems != null &&
-            pickUper.TryGetComponent<Shield>(out var shield)
+        switch (_items.Type)
+        {
+            case ProgressionItem.ItemType.Shield:
+                return TryPickUpShield(gameObject);
+
+            case ProgressionItem.ItemType.Weapon:
+                return TryPickUpWeapon(gameObject);
+
+            default:
+                return false;
+        }
+    }
+
+    private bool TryPickUpShield(GameObject pickUpper)
+    {
+        return TryPickUp<Shield>(pickUpper);
+    }
+
+    private bool TryPickUpWeapon(GameObject pickUpper)
+    {
+        if (pickUpper.TryGetComponent<Shooter>(out var shooter))
+        {
+            var shooterWeapons = shooter.GetWeapons();
+            if (shooterWeapons == null) { return false; }
+
+            foreach (var weapon in shooterWeapons)
+            {
+                weapon.SetNewProgression(_items, level: 1);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    private bool TryPickUp<T>(GameObject pickUpper) where T : ISwapProgression
+    {
+        if (_items != null &&
+            pickUpper.TryGetComponent<T>(out var swapper)
             )
         {
-            shield.SetNewProgression(_shieldItems as ShieldStock, level: 1);
+            swapper.SetNewProgression(_items, level: 1);
             return true;
         }
         return false;

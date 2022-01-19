@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class WeaponSlot : MonoBehaviour
 {
-    [SerializeField] Weapon _weapon;
+    public Weapon Weapon { get => _weapon; }
+
+    [SerializeField] private Weapon _weapon;
 
     private void Awake()
     {

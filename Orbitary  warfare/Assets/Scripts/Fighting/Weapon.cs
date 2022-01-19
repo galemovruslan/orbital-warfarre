@@ -1,9 +1,9 @@
 using UnityEngine;
 
 [RequireComponent(typeof(ProjectilePool))]
-public class Weapon : MonoBehaviour
+public class Weapon : MonoBehaviour, ISwapProgression
 {
-    [SerializeField] private WeaponStock _weaponStock;
+    [SerializeField] private ProgressionItem _weaponStock;
     [SerializeField] private ProjectileItem _projectile;
     [SerializeField] Transform _firePoint;
 
@@ -21,7 +21,15 @@ public class Weapon : MonoBehaviour
 
         if(_weaponStock != null)
         {
-            SetWeapon(_weaponStock.GetItem(_level));
+            SetWeapon(_weaponStock.GetItem(_level) as WeaponItem);
+        }
+    }
+
+    private void OnValidate()
+    {
+        if(_weaponStock.Type != ProgressionItem.ItemType.Weapon)
+        {
+            _weaponStock = null;
         }
     }
 
@@ -44,11 +52,13 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void SetWeaponProgression(WeaponStock weaponStock, int level)
+    public void SetNewProgression(ProgressionItem weaponStock, int level)
     {
+        if(weaponStock.Type != ProgressionItem.ItemType.Weapon) { return; }
+
         _weaponStock = weaponStock;
         _level = level;
-        SetWeapon(_weaponStock.GetItem(level));
+        SetWeapon(_weaponStock.GetItem(level) as WeaponItem);
     }
 
     private void SetWeapon(WeaponItem item)

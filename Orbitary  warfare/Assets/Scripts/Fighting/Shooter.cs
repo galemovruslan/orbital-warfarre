@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum ShooterType
@@ -27,6 +28,20 @@ public class Shooter : MonoBehaviour, IHaveShooterType
         {
             weaponSlot.Fire( _shooterType);
         }
+    }
+
+    public List<Weapon> GetWeapons()
+    {
+        if(_weaponSlots == null) { return null; }
+
+        var weapons = new List<Weapon>();
+
+        foreach (var weaponSlot in _weaponSlots)    
+        {
+            weapons.Add(weaponSlot.Weapon);
+        }
+
+        return weapons;
     }
 
 }

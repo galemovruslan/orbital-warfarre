@@ -5,7 +5,7 @@ using UnityEngine;
 public class PickUpSpawner : MonoBehaviour
 {
     [SerializeField] private PickUp _shieldObject;
-    [SerializeField] private ShieldVariant[] _shieldVariants;
+    [SerializeField] private Variant[] _shieldVariants;
 
     [ContextMenu("Spawn")]
     public void SpawnRandomShield()
@@ -35,7 +35,7 @@ public class PickUpSpawner : MonoBehaviour
 
 
     [System.Serializable]
-    private class ShieldVariant : Weighted
+    private class Variant : Weighted
     {
         int Weighted.Weight
         { 
@@ -43,7 +43,7 @@ public class PickUpSpawner : MonoBehaviour
             set => weight = value; 
         }
 
-        public ShieldStock Stock;
+        public ProgressionItem Stock;
         public Sprite Icon;
         public int weight;
 
