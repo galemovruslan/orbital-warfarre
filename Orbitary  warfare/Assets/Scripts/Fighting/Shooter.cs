@@ -12,36 +12,33 @@ public class Shooter : MonoBehaviour, IHaveShooterType
 {
     public ShooterType Type => _shooterType;
 
-    [SerializeField] private WeaponSlot[] _weaponSlots;
+    [SerializeField] private Weapon[] _weapons;
     [SerializeField] private ShooterType _shooterType;
 
     private void Awake()
     {
-        _weaponSlots = GetComponentsInChildren<WeaponSlot>();
+        _weapons = GetComponentsInChildren<Weapon>();
     }
 
     public void Shoot(bool shoot)
     {
         if (!shoot) { return; }
 
-        foreach (var weaponSlot in _weaponSlots)
+        foreach (var weaponSlot in _weapons)
         {
             weaponSlot.Fire( _shooterType);
         }
     }
 
-    public List<Weapon> GetWeapons()
+    public bool SetWeaponProgression(ProgressionItem progression)
     {
-        if(_weaponSlots == null) { return null; }
+        if(_weapons == null) { return false; }
 
-        var weapons = new List<Weapon>();
-
-        foreach (var weaponSlot in _weaponSlots)    
+        foreach (var weapon in _weapons)
         {
-            weapons.Add(weaponSlot.Weapon);
+            weapon.SetNewProgression(progression, 1);
         }
-
-        return weapons;
+        return true;
     }
 
 }

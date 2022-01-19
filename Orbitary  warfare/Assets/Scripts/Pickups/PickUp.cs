@@ -54,14 +54,7 @@ public class PickUp : MonoBehaviour
     {
         if (pickUpper.TryGetComponent<Shooter>(out var shooter))
         {
-            var shooterWeapons = shooter.GetWeapons();
-            if (shooterWeapons == null) { return false; }
-
-            foreach (var weapon in shooterWeapons)
-            {
-                weapon.SetNewProgression(_items, level: 1);
-            }
-            return true;
+            return shooter.SetWeaponProgression(_items);
         }
         return false;
     }
