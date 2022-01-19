@@ -23,6 +23,7 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType
             }
         }
     }
+
     [SerializeField] private ShieldStock _currentStock;
     [SerializeField] private int _level;
 

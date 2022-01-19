@@ -1,22 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 [RequireComponent(typeof(ProjectilePool))]
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private WeaponItem _weaponItem;
+    [SerializeField] private WeaponStock _weaponStock;
     [SerializeField] private ProjectileItem _projectile;
     [SerializeField] Transform _firePoint;
 
+    private WeaponItem _weaponItem;
     private ProjectilePool _pool;
+    private SpriteRenderer _renderer;
+
     private float _nextFireTime = 0f;
+    private int _level = 1;
 
     private void Awake()
     {
+        _renderer = GetComponentInChildren<SpriteRenderer>();
         _pool = GetComponent<ProjectilePool>();
-        Assert.IsNotNull(_pool, "GetComponent<Pool> has returned null");
+
+        if(_weaponStock != null)
+        {
+            SetWeapon(_weaponStock.GetItem(_level));
+        }
     }
 
     public void Fire(ShooterType shooterType)
@@ -27,18 +33,29 @@ public class Weapon : MonoBehaviour
             {
                 _pool = GetComponent<ProjectilePool>();
             }
+
             Projectile nextProjectile = _pool.GetItem(_projectile);
-            PrepareProjectile(nextProjectile);
+            nextProjectile.transform.position = _firePoint.position;
+            nextProjectile.transform.rotation = _firePoint.rotation;
+
             nextProjectile.Launch(_projectile.Speed, _projectile.Damage, shooterType);
 
             _nextFireTime = Time.time + _weaponItem.TimeBetweenShots;
         }
     }
 
-    private void PrepareProjectile(Projectile projectile)
+    public void SetWeaponProgression(WeaponStock weaponStock, int level)
     {
-        projectile.transform.position = _firePoint.position;
-        projectile.transform.rotation = _firePoint.rotation;
+        _weaponStock = weaponStock;
+        _level = level;
+        SetWeapon(_weaponStock.GetItem(level));
+    }
+
+    private void SetWeapon(WeaponItem item)
+    {
+        _weaponItem = item;
+        _renderer.sprite = item.Sprite;
+        _renderer.color = item.Color;
     }
 
 }

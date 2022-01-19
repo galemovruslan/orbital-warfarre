@@ -10,7 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19baa22e235591240be338bcd24f33fa, type: 3}
-  m_Name: Standart Weapon
+  m_Name: Advanced Weapon level 3
   m_EditorClassIdentifier: 
-  _fireTime: 1
-  _projectile: {fileID: 11400000, guid: 761b04303c6276c48b82d266749f66b3, type: 2}
+  _level: 3
+  _fireTime: 0.4
+  _sprite: {fileID: 21300000, guid: 648a2e58836314c458d2e27f49e2bb83, type: 3}
+  _color: {r: 0.754717, g: 0.69800603, b: 0, a: 1}
+  _type: 0
