@@ -53,7 +53,7 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType, ISwapProgres
 
     private void OnValidate()
     {
-        if(_currentStock != null &&
+        if (_currentStock != null &&
             _currentStock.Type != ProgressionItem.ItemType.Shield)
         {
             _currentStock = null;
@@ -78,7 +78,7 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType, ISwapProgres
 
     public void SetNewProgression(ProgressionItem newShield, int level)
     {
-        if(newShield.Type != ProgressionItem.ItemType.Shield) { return; }
+        if (newShield.Type != ProgressionItem.ItemType.Shield) { return; }
 
         _currentStock = newShield;
         _level = level;
@@ -87,10 +87,7 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType, ISwapProgres
 
     public void LevelUp()
     {
-        if (_level >= _currentStock.MaxLevel)
-        {
-            return;
-        }
+        if (_level >= _currentStock.MaxLevel) { return; }
         _level++;
         SetShield(_currentStock.GetItem(_level) as ShieldItem);
     }

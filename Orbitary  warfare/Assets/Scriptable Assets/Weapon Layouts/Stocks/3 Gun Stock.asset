@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1c15188eaa09a44b646d78b1c2c0bb, type: 3}
+  m_Name: 3 Gun Stock
+  m_EditorClassIdentifier: 
+  _type: 2
+  _stock:
+  - {fileID: 11400000, guid: 87b76873f13aa7d4f9c6a9f97130d7b3, type: 2}
+  - {fileID: 11400000, guid: 6e0292d06beaf9942b1355c7f9798da6, type: 2}
+  - {fileID: 11400000, guid: 879663028688f80478fb15fd5311bc1f, type: 2}

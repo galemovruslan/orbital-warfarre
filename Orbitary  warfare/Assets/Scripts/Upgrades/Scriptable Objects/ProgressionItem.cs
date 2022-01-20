@@ -11,21 +11,22 @@ public class ProgressionItem: ScriptableObject
     public ItemType Type { get => _type; }
 
     [SerializeField] ItemType _type;
-    [SerializeField] private List<UpgradableItem> _stock = new List<UpgradableItem>();
+    [SerializeField] private List<SwapableItem> _stock = new List<SwapableItem>();
 
-    public UpgradableItem GetItem(int level)
+    public SwapableItem GetItem(int level)
     {
         int listIndex = level - 1;
         if (listIndex < 0 || listIndex >= _stock.Count)
         {
-            return default(UpgradableItem);
+            return default(SwapableItem);
         }
         return _stock[listIndex];
     }
     public enum ItemType
     {
         Shield,
-        Weapon
+        Weapon,
+        Layout
     }
 
 }

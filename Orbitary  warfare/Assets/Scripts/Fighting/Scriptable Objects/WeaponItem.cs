@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Weapon", menuName = "Fighting/Weapon")]
-public class WeaponItem : UpgradableItem
+public class WeaponItem : SwapableItem
 {
     public float TimeBetweenShots => _fireTime;
     public WeaponType Type { get => _type;  }

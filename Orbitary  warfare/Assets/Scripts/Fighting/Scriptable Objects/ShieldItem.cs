@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="New Shield", menuName ="Upgrades/Shield")]
-public class ShieldItem : UpgradableItem
+public class ShieldItem : SwapableItem
 {
     public float Durability { get => _durability; }
     public ShieldItemType Type { get => _type; }
