@@ -26,7 +26,8 @@ public class ProgressionItem: ScriptableObject
     {
         Shield,
         Weapon,
-        Layout
+        Layout, 
+        Projectile
     }
 
 }

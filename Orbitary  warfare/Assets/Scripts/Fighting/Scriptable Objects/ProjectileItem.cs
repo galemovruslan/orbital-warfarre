@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Projectile", menuName = "Fighting/Projectile")]
-public class ProjectileItem : ScriptableObject
+public class ProjectileItem : SwapableItem
 {
     public float Damage => _damage;
     public float Speed => _speed;

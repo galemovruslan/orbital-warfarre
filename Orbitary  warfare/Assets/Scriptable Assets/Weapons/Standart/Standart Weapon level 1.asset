@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Standart Weapon level 1
   m_EditorClassIdentifier: 
   _level: 1
-  _fireTime: 1
   _sprite: {fileID: 21300000, guid: a497e241d58cc49448b4292e848bab9e, type: 3}
-  _color: {r: 0.25943398, g: 0.91247386, b: 1, a: 1}
+  _color: {r: 0.16015485, g: 0.51045626, b: 0.5566038, a: 1}
+  _fireTime: 1
   _type: 0

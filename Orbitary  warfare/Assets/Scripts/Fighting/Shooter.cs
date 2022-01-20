@@ -41,4 +41,23 @@ public class Shooter : MonoBehaviour, IHaveShooterType
         return true;
     }
 
+    public void LevelUpWeapon()
+    {
+        foreach (var weapon in _weapons)
+        {
+            weapon.LevelUp();
+        }
+    }
+
+    public bool SetProjectileProgression(ProgressionItem progression)
+    {
+        if (_weapons == null) { return false; }
+
+        foreach (var weapon in _weapons)
+        {
+            weapon.SetNewProjectile(progression);
+        }
+        return true;
+    }
+
 }

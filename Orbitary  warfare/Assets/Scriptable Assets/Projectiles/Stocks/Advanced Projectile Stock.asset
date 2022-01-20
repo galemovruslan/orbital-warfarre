@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bedfc68e81d9c214d867461fe80c4258, type: 3}
-  m_Name: Standart Projectile
+  m_Script: {fileID: 11500000, guid: 4d1c15188eaa09a44b646d78b1c2c0bb, type: 3}
+  m_Name: Advanced Projectile Stock
   m_EditorClassIdentifier: 
-  _damage: 1
-  _speed: 20
-  _projectile: {fileID: 6763966990391209205, guid: f16a2b42ddd377d4588e7dca07458427, type: 3}
+  _type: 3
+  _stock:
+  - {fileID: 11400000, guid: 4a2f16ce9a69a744b98aca142e63a8cc, type: 2}

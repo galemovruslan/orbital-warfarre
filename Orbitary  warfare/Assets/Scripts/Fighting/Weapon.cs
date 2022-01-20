@@ -19,7 +19,7 @@ public class Weapon : MonoBehaviour, ISwapProgression
         _renderer = GetComponentInChildren<SpriteRenderer>();
         _pool = GetComponent<ProjectilePool>();
 
-        if(_weaponStock != null)
+        if (_weaponStock != null)
         {
             SetWeapon(_weaponStock.GetItem(_level) as WeaponItem);
         }
@@ -27,7 +27,7 @@ public class Weapon : MonoBehaviour, ISwapProgression
 
     private void OnValidate()
     {
-        if(_weaponStock.Type != ProgressionItem.ItemType.Weapon)
+        if (_weaponStock.Type != ProgressionItem.ItemType.Weapon)
         {
             _weaponStock = null;
         }
@@ -35,9 +35,11 @@ public class Weapon : MonoBehaviour, ISwapProgression
 
     public void Fire(ShooterType shooterType)
     {
+        if (!gameObject.activeInHierarchy) { return; }
+
         if (Time.time >= _nextFireTime)
         {
-            if(_pool == null)
+            if (_pool == null)
             {
                 _pool = GetComponent<ProjectilePool>();
             }
@@ -54,11 +56,27 @@ public class Weapon : MonoBehaviour, ISwapProgression
 
     public void SetNewProgression(ProgressionItem weaponStock, int level)
     {
-        if(weaponStock.Type != ProgressionItem.ItemType.Weapon) { return; }
+        if (weaponStock.Type != ProgressionItem.ItemType.Weapon) { return; }
 
         _weaponStock = weaponStock;
         _level = level;
         SetWeapon(_weaponStock.GetItem(level) as WeaponItem);
+    }
+
+    public void SetNewProjectile(ProgressionItem projectileStock)
+    {
+        if (projectileStock.Type != ProgressionItem.ItemType.Projectile) { return; }
+
+        _projectile = projectileStock.GetItem(level: 1) as ProjectileItem;
+        _pool.RepopulatePool(_projectile);
+    }
+
+    public void LevelUp()
+    {
+        if (_level >= _weaponStock.MaxLevel) { return; }
+
+        _level++;
+        SetWeapon(_weaponStock.GetItem(_level) as WeaponItem);
     }
 
     private void SetWeapon(WeaponItem item)

@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class PickUpSpawner : MonoBehaviour
 {
-    [SerializeField] private PickUp _shieldObject;
-    [SerializeField] private Variant[] _shieldVariants;
+    [SerializeField] private Variant[] _variants;
 
     [ContextMenu("Spawn")]
-    public void SpawnRandomShield()
+    public void SpawnRandom()
     {
-        int[] weights = GetWeights(_shieldVariants);
+        int[] weights = GetWeights(_variants);
         int index = ProbabilityPicker.PickWeightedIndex(weights);
-        SpawnShield(index);
+        SpawnPickUp(index);
     }
-
 
     private int[] GetWeights(Weighted[] weightedVariants)
     {
@@ -27,10 +25,10 @@ public class PickUpSpawner : MonoBehaviour
         return weights;
     }
 
-    private void SpawnShield(int index)
+    private void SpawnPickUp(int index)
     {
-        PickUp createdPickup = Instantiate(_shieldObject, transform.position, Quaternion.identity);
-        createdPickup.Init(_shieldVariants[index].Stock, _shieldVariants[index].Icon);
+        PickUp createdPickup = Instantiate(_variants[index].pickUp, transform.position, Quaternion.identity);
+        createdPickup.Init();
     }
 
 
@@ -43,8 +41,7 @@ public class PickUpSpawner : MonoBehaviour
             set => weight = value; 
         }
 
-        public ProgressionItem Stock;
-        public Sprite Icon;
+        public PickUp pickUp;
         public int weight;
 
     }

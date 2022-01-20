@@ -12,12 +12,8 @@ public class WeaponSlot : MonoBehaviour
     [SerializeField] private Weapon[] _weapons;
 
 
-    private void Awake()
+    private void Start()    
     {
-        //_weapons = GetComponentsInChildren<Weapon>();
-        Assert.IsNotNull(_weapons, "Weapons are not found");
-
-        Assert.IsNotNull(_layoutProgression, "Layout progression is not assigned");
         UpdateLayout();
     }
 

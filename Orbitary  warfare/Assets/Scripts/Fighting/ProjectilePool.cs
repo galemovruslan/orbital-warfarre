@@ -10,41 +10,27 @@ public class ProjectilePool : MonoBehaviour
 
     private GameObject _itemParent;
     private Projectile _projectile;
-    private List<Projectile> _pool;
+    private List<Projectile> _pool = new List<Projectile>();
     private bool _initialized = false;
 
     private void OnEnable()
     {
-        _pool = new List<Projectile>();
+        //_pool = new List<Projectile>();
         _initialized = false;
     }
-
-    private void OnDestroy()
+    /*
+    private void OnDisable()
     {
-        foreach (var item in _pool)
-        {
-            if (item != null)
-            {
-                Destroy(item.gameObject);
-            }
-        }
+        DestroyPoolContainings();
         _pool.Clear();
     }
+    */
 
     public Projectile GetItem(ProjectileItem projectileSO)
     {
         if (!_initialized)
         {
-            _itemParent = GameObject.Find(_parentName);
-            if (_itemParent == null)
-            {
-                _itemParent = new GameObject(_parentName);
-            }
-            _projectile = projectileSO.Projectile;
-            for (int poolIndex = 0; poolIndex < _poolSize; poolIndex++)
-            {
-                _pool.Add(MakeItem(false));
-            }
+            RepopulatePool(projectileSO);
             _initialized = true;
         }
         return GetItem();
@@ -78,6 +64,34 @@ public class ProjectilePool : MonoBehaviour
         createdProjectile.gameObject.SetActive(isActive);
         createdProjectile.Pool = this;
         return createdProjectile;
+    }
+
+    public void RepopulatePool(ProjectileItem projectileSO)
+    {
+        _itemParent = GameObject.Find(_parentName);
+        if (_itemParent == null)
+        {
+            _itemParent = new GameObject(_parentName);
+        }
+        DestroyPoolContainings();
+        _pool.Clear();
+        _projectile = projectileSO.Projectile;
+
+        for (int poolIndex = 0; poolIndex < _poolSize; poolIndex++)
+        {
+            _pool.Add(MakeItem(false));
+        }
+    }
+
+    private void DestroyPoolContainings()
+    {
+        foreach (var item in _pool)
+        {
+            if (item != null)
+            {
+                Destroy(item.gameObject);
+            }
+        }
     }
 
 }

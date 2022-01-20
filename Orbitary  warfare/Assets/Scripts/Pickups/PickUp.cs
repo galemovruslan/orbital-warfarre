@@ -3,20 +3,17 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    private ProgressionItem _items;
-    private SpriteRenderer _renderer;
+    [SerializeField] private ProgressionItem _items;
+
     private Rigidbody2D _rb;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _renderer = GetComponentInChildren<SpriteRenderer>();
     }
 
-    public void Init(ProgressionItem stock, Sprite icon)
+    public void Init()
     {
-        _items = stock;
-        _renderer.sprite = icon;
         _rb.velocity = Random.insideUnitCircle.normalized;
     }
 
@@ -30,15 +27,18 @@ public class PickUp : MonoBehaviour
         }
     }
 
-    private bool TryPickup(GameObject gameObject)
+    private bool TryPickup(GameObject pickUpper)
     {
         switch (_items.Type)
         {
             case ProgressionItem.ItemType.Shield:
-                return TryPickUpShield(gameObject);
+                return TryPickUpShield(pickUpper);
 
             case ProgressionItem.ItemType.Weapon:
-                return TryPickUpWeapon(gameObject);
+                return TryPickUpWeapon(pickUpper);
+
+            case ProgressionItem.ItemType.Projectile:
+                return TryPickUpProjectile(pickUpper);
 
             default:
                 return false;
@@ -55,6 +55,15 @@ public class PickUp : MonoBehaviour
         if (pickUpper.TryGetComponent<Shooter>(out var shooter))
         {
             return shooter.SetWeaponProgression(_items);
+        }
+        return false;
+    }
+
+    private bool TryPickUpProjectile(GameObject pickUpper)
+    {
+        if (pickUpper.TryGetComponent<Shooter>(out var shooter))
+        {
+            return shooter.SetProjectileProgression(_items);
         }
         return false;
     }

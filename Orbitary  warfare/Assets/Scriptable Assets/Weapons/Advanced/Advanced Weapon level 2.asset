@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Advanced Weapon level 2
   m_EditorClassIdentifier: 
   _level: 2
-  _fireTime: 0.6
   _sprite: {fileID: 21300000, guid: 648a2e58836314c458d2e27f49e2bb83, type: 3}
-  _color: {r: 0.754717, g: 0.69800603, b: 0, a: 1}
+  _color: {r: 0.8490566, g: 0.7566291, b: 0.0040049935, a: 1}
+  _fireTime: 0.6
   _type: 0
