@@ -13,6 +13,7 @@ public class Weapon : MonoBehaviour, ISwapProgression
 
     private float _nextFireTime = 0f;
     private int _level = 1;
+    private bool isEnabled = false;
 
     private void Awake()
     {
@@ -35,7 +36,7 @@ public class Weapon : MonoBehaviour, ISwapProgression
 
     public void Fire(ShooterType shooterType)
     {
-        if (!gameObject.activeInHierarchy) { return; }
+        if (!isEnabled) { return; }
 
         if (Time.time >= _nextFireTime)
         {
@@ -56,7 +57,10 @@ public class Weapon : MonoBehaviour, ISwapProgression
 
     public void SetNewProgression(ProgressionItem weaponStock, int level)
     {
-        if (weaponStock.Type != ProgressionItem.ItemType.Weapon) { return; }
+        if (_weaponStock == weaponStock ||
+            weaponStock.Type != ProgressionItem.ItemType.Weapon
+            ) 
+            { return; }
 
         _weaponStock = weaponStock;
         _level = level;
@@ -77,6 +81,18 @@ public class Weapon : MonoBehaviour, ISwapProgression
 
         _level++;
         SetWeapon(_weaponStock.GetItem(_level) as WeaponItem);
+    }
+
+    public void EnableWeapon()
+    {
+        isEnabled = true;
+        _renderer.enabled = true;
+    }
+
+    public void DisableWeapon()
+    {
+        isEnabled = false;
+        _renderer.enabled = false;
     }
 
     private void SetWeapon(WeaponItem item)

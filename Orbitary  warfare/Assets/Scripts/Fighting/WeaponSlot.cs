@@ -31,11 +31,11 @@ public class WeaponSlot : MonoBehaviour
         var layoutItem = _layoutProgression.GetItem(_level) as WeaponLayoutItem;
         foreach (var weapon in _weapons)
         {
-            weapon.gameObject.SetActive(false);
+            weapon.DisableWeapon();
         }
         foreach (var index in layoutItem.EnabledWeapons)
         {
-            _weapons[index - 1].gameObject.SetActive(true);
+            _weapons[index - 1].EnableWeapon();
         }
     }
 }

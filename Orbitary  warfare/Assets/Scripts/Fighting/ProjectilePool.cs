@@ -61,6 +61,8 @@ public class ProjectilePool : MonoBehaviour
     private Projectile MakeItem(bool isActive)
     {
         Projectile createdProjectile = Instantiate<Projectile>(_projectile, transform.position, transform.rotation, _itemParent.transform);
+        createdProjectile.transform.position = transform.position;
+        createdProjectile.transform.rotation = transform.rotation;
         createdProjectile.gameObject.SetActive(isActive);
         createdProjectile.Pool = this;
         return createdProjectile;

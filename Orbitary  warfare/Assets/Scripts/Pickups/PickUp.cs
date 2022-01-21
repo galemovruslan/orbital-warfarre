@@ -70,8 +70,9 @@ public class PickUp : MonoBehaviour
 
     private bool TryPickUp<T>(GameObject pickUpper) where T : ISwapProgression
     {
+        var swapper = pickUpper.GetComponentInChildren<T>();
         if (_items != null &&
-            pickUpper.TryGetComponent<T>(out var swapper)
+            swapper != null
             )
         {
             swapper.SetNewProgression(_items, level: 1);

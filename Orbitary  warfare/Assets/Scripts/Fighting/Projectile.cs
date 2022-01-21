@@ -49,10 +49,7 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<IHaveShooterType>(out IHaveShooterType typed))
         {
-            if (typed.Type == _type)
-            {
-                return;
-            }
+            if (typed.Type == _type) { return; }
         }
 
         if (collision.gameObject.TryGetComponent<IDamageable>(out IDamageable target))

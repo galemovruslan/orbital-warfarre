@@ -17,3 +17,4 @@ MonoBehaviour:
   _color: {r: 0.011764706, g: 1, b: 0, a: 1}
   _durability: 3
   _type: 0
+  _visuals: {fileID: 7658791626324757157, guid: c02d6ec5ae444c047a1fbf439b762614, type: 3}

@@ -29,16 +29,15 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType, ISwapProgres
 
     private ShieldItem _currentShield;
 
-    private SpriteRenderer _renderer;
+    private UpgradableVisuals _visuals;
     private CircleCollider2D _collider;
     private float _durability;
 
     private void Awake()
     {
-        _renderer = GetComponentInChildren<SpriteRenderer>();
         _collider = GetComponent<CircleCollider2D>();
         Type = GetComponentInParent<Shooter>().Type;
-
+        _visuals = GetComponentInChildren<UpgradableVisuals>();
 
         if (_level == 0)
         {
@@ -78,7 +77,10 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType, ISwapProgres
 
     public void SetNewProgression(ProgressionItem newShield, int level)
     {
-        if (newShield.Type != ProgressionItem.ItemType.Shield) { return; }
+        if (_currentStock == newShield ||
+            newShield.Type != ProgressionItem.ItemType.Shield
+            ) 
+            { return; }
 
         _currentStock = newShield;
         _level = level;
@@ -96,12 +98,14 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType, ISwapProgres
     {
         _currentShield = shield;
         Enable();
+        UpdateVisuals();
     }
+
 
     private void Disable()
     {
         _collider.enabled = false;
-        _renderer.sprite = null;
+        _visuals.HideVisuals();
     }
 
     private void Enable()
@@ -111,8 +115,16 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType, ISwapProgres
             return;
         }
         _collider.enabled = true;
-        _renderer.sprite = _currentShield.Sprite;
-        _renderer.color = _currentShield.Color;
         _durability = _currentShield.Durability;
+    }
+
+    private void UpdateVisuals()
+    {
+        if (_currentShield == null)
+        {
+            return;
+        }
+
+        _visuals.SetVisuals(_currentShield.Visuals);
     }
 }
