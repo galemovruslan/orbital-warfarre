@@ -418,7 +418,7 @@ MonoBehaviour:
   - pickUp: {fileID: 5844377961289503065, guid: cbab0b7b8599944448c4a90a6ab2c6c2, type: 3}
     weight: 2
   - pickUp: {fileID: 5844377961289503065, guid: e651f3fe99bba9b43a30dd3ae1dd3036, type: 3}
-    weight: 2
+    weight: 32
   - pickUp: {fileID: 5844377961289503065, guid: a0c1da60dcebe3349a3dc4bf8ca7bebe, type: 3}
     weight: 2
   - pickUp: {fileID: 5844377961289503065, guid: d97f0129c93c19746bfc187bed87d89c, type: 3}
@@ -640,6 +640,14 @@ PrefabInstance:
       propertyPath: _defaultTarget
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2750315595755079206, guid: 2853488734d4fb44e8cf884a666f659b, type: 3}
+      propertyPath: _level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2750315595755079206, guid: 2853488734d4fb44e8cf884a666f659b, type: 3}
+      propertyPath: _layoutProgression
+      value: 
+      objectReference: {fileID: 11400000, guid: fe913ae8c7c243c41bc233b94b470ec3, type: 2}
     - target: {fileID: 4445811256534819866, guid: 2853488734d4fb44e8cf884a666f659b, type: 3}
       propertyPath: m_RootOrder
       value: 0

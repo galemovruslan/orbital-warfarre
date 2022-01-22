@@ -79,8 +79,8 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType, ISwapProgres
     {
         if (_currentStock == newShield ||
             newShield.Type != ProgressionItem.ItemType.Shield
-            ) 
-            { return; }
+            )
+        { return; }
 
         _currentStock = newShield;
         _level = level;
@@ -105,25 +105,20 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType, ISwapProgres
     private void Disable()
     {
         _collider.enabled = false;
-        _visuals.HideVisuals();
+        _visuals.DestroyVisuals();
     }
 
     private void Enable()
     {
-        if (_currentShield == null)
-        {
-            return;
-        }
+        if (_currentShield == null) { return; }
+
         _collider.enabled = true;
         _durability = _currentShield.Durability;
     }
 
     private void UpdateVisuals()
     {
-        if (_currentShield == null)
-        {
-            return;
-        }
+        if (_currentShield == null) { return; }
 
         _visuals.SetVisuals(_currentShield.Visuals);
     }

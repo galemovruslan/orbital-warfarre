@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19baa22e235591240be338bcd24f33fa, type: 3}
-  m_Name: Standart Weapon level 1
+  m_Script: {fileID: 11500000, guid: 7c31f0e40560f5946a16f68d8564bbda, type: 3}
+  m_Name: 1 gun level 1
   m_EditorClassIdentifier: 
   _level: 1
   _sprite: {fileID: 0}
-  _color: {r: 0.16015485, g: 0.51045626, b: 0.5566038, a: 1}
-  _fireTime: 1
-  _type: 0
-  _visuals: {fileID: 6960239059924222786, guid: 2e792d878d8dec141b59386522b8260e, type: 3}
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  EnabledWeapons: 01000000

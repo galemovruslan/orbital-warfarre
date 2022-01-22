@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour, ISwapProgression
 
     private WeaponItem _weaponItem;
     private ProjectilePool _pool;
-    private SpriteRenderer _renderer;
+    private UpgradableVisuals _visuals;
 
     private float _nextFireTime = 0f;
     private int _level = 1;
@@ -17,7 +17,7 @@ public class Weapon : MonoBehaviour, ISwapProgression
 
     private void Awake()
     {
-        _renderer = GetComponentInChildren<SpriteRenderer>();
+        _visuals = GetComponentInChildren<UpgradableVisuals>();
         _pool = GetComponent<ProjectilePool>();
 
         if (_weaponStock != null)
@@ -59,8 +59,8 @@ public class Weapon : MonoBehaviour, ISwapProgression
     {
         if (_weaponStock == weaponStock ||
             weaponStock.Type != ProgressionItem.ItemType.Weapon
-            ) 
-            { return; }
+            )
+        { return; }
 
         _weaponStock = weaponStock;
         _level = level;
@@ -86,20 +86,31 @@ public class Weapon : MonoBehaviour, ISwapProgression
     public void EnableWeapon()
     {
         isEnabled = true;
-        _renderer.enabled = true;
+        _visuals.Show();
     }
 
     public void DisableWeapon()
     {
         isEnabled = false;
-        _renderer.enabled = false;
+        _visuals.Hide();
     }
 
     private void SetWeapon(WeaponItem item)
     {
         _weaponItem = item;
-        _renderer.sprite = item.Sprite;
-        _renderer.color = item.Color;
+        UpdateVisuals(_weaponItem);
+    }
+
+    private void UpdateVisuals(WeaponItem item)
+    {
+        if (_weaponItem == null) { return; }
+
+        _visuals.SetVisuals(item.Visuals);
+
+        if (!isEnabled)
+        {
+            _visuals.Hide();
+        }
     }
 
 }

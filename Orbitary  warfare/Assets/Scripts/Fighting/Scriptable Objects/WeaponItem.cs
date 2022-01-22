@@ -5,10 +5,11 @@ public class WeaponItem : SwapableItem
 {
     public float TimeBetweenShots => _fireTime;
     public WeaponType Type { get => _type;  }
+    public GameObject Visuals { get => _visuals;}
 
     [SerializeField] private float _fireTime = 1f;
     [SerializeField] private WeaponType _type;
-
+    [SerializeField] private GameObject _visuals;
 
 }
 

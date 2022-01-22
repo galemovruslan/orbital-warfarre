@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Standart Weapon level 2
   m_EditorClassIdentifier: 
   _level: 2
-  _sprite: {fileID: 21300000, guid: a497e241d58cc49448b4292e848bab9e, type: 3}
+  _sprite: {fileID: 0}
   _color: {r: 0.21537916, g: 0.757142, b: 0.8301887, a: 1}
   _fireTime: 0.75
   _type: 0
+  _visuals: {fileID: 6960239059924222786, guid: 2e792d878d8dec141b59386522b8260e, type: 3}
