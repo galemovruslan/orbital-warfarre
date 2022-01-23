@@ -6,28 +6,67 @@ public class ConstraintOrientation : MonoBehaviour
 {
     [SerializeField] private float _angleMax = 45f;
 
-    private Vector3 _startRotation;
+    private float _startRotation;
     private void Awake()
     {
-        _startRotation = transform.localRotation.eulerAngles;
+        _startRotation = MapToRotation(transform.rotation.eulerAngles.z,true);
     }
 
     private void LateUpdate()
     {
-        Quaternion minRotation = Quaternion.Euler(0, 0, _startRotation.z - _angleMax);
-        Quaternion maxRotation = Quaternion.Euler(0, 0, _startRotation.z + _angleMax);
+        float minRotationAngle = _startRotation - _angleMax;
+        float maxRotationAngle = _startRotation + _angleMax;
 
-        Quaternion currentOrientation = transform.localRotation;
+        Quaternion minRotation = Quaternion.Euler(0, 0, minRotationAngle);
+        Quaternion maxRotation = Quaternion.Euler(0, 0, maxRotationAngle);
 
-        if(currentOrientation.z > maxRotation.z)
+        Quaternion currentOrientation = transform.rotation;
+
+        float currentAngle = MapToRotation(currentOrientation.eulerAngles.z, true);
+
+        if (currentAngle > maxRotationAngle)
         {
             currentOrientation = maxRotation;
         }
-        else if(currentOrientation.z < minRotation.z)
+        else if(currentAngle < minRotationAngle)
         {
             currentOrientation = minRotation;
         }
         transform.rotation = currentOrientation;
+    }
+
+    public float MapToRotation(float rotation, bool isConstraint)
+    {
+        rotation %= 360f;
+        
+        if(Mathf.Abs(_startRotation) > _angleMax)
+        {
+            if(Mathf.Sign(rotation) != Mathf.Sign(_startRotation))
+            {
+                if (rotation < 0)
+                {
+                    rotation += 360f;
+                }
+                else
+                {
+                    rotation -= 360f;
+                }
+            }
+            return rotation;
+        }
+        
+        if (Mathf.Abs(rotation) > 180F)
+        {
+            if (rotation < 0)
+            {
+                rotation += 360f;
+            }
+            else
+            {
+                rotation -= 360f;
+            }
+        }
+        return rotation;
     }
 
 }

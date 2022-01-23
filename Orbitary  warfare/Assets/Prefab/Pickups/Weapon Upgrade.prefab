@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1732129770785560147}
   - component: {fileID: 1732129770785560158}
   - component: {fileID: 1513290778248565973}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Weapon Upgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8312896359118158242}
   - component: {fileID: 3491226917279997157}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}

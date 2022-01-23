@@ -18,13 +18,13 @@ public class ProjectilePool : MonoBehaviour
         //_pool = new List<Projectile>();
         _initialized = false;
     }
-    /*
-    private void OnDisable()
+    
+    private void OnDestroy()
     {
         DestroyPoolContainings();
         _pool.Clear();
     }
-    */
+    
 
     public Projectile GetItem(ProjectileItem projectileSO)
     {

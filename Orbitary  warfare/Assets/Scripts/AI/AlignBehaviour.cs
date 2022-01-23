@@ -11,9 +11,8 @@ public class AlignBehaviour : AgentBehaviour
         float rotationDiference = transform.rotation.eulerAngles.z - _target.rotation.eulerAngles.z;
         rotationDiference = MapToRotation(rotationDiference);
 
-        float t = rotationDiference.Remap(-_slowRangeDegrees, _slowRangeDegrees);
-        float rotationCommand = Mathf.Lerp(-1, 1, t);
-
+        float rotationCommand = rotationDiference.Remap(-_slowRangeDegrees, _slowRangeDegrees);
+        
         var steering = new Steering();
         steering.Rotation = Mathf.Clamp(rotationCommand, -1, 1 );
         return steering;
