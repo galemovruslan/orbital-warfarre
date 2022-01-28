@@ -26,6 +26,7 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType, ISwapProgres
 
     [SerializeField] private ProgressionItem _currentStock;
     [SerializeField] private int _level;
+    [SerializeField] private EventAsset OnLevelUp;
 
     private ShieldItem _currentShield;
 
@@ -99,8 +100,8 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType, ISwapProgres
         _currentShield = shield;
         Enable();
         UpdateVisuals();
+        FireOnLevelUpEvent();
     }
-
 
     private void Disable()
     {
@@ -121,5 +122,12 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType, ISwapProgres
         if (_currentShield == null) { return; }
 
         _visuals.SetVisuals(_currentShield.Visuals);
+    }
+
+    private void FireOnLevelUpEvent()
+    {
+        if (OnLevelUp == null) { return; }
+
+        OnLevelUp.Invoke(_level);
     }
 }

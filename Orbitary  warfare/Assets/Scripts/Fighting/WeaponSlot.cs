@@ -10,7 +10,7 @@ public class WeaponSlot : MonoBehaviour
     [Range(1, 3)]
     [SerializeField] private int _level;
     [SerializeField] private Weapon[] _weapons;
-
+    [SerializeField] private EventAsset OnLevelUp;
 
     private void Start()    
     {
@@ -37,5 +37,9 @@ public class WeaponSlot : MonoBehaviour
         {
             _weapons[index - 1].EnableWeapon();
         }
+
+        if (OnLevelUp == null) { return; }
+        OnLevelUp.Invoke(_level);
     }
+
 }

@@ -5,7 +5,8 @@ public class Weapon : MonoBehaviour, ISwapProgression
 {
     [SerializeField] private ProgressionItem _weaponStock;
     [SerializeField] private ProjectileItem _projectile;
-    [SerializeField] Transform _firePoint;
+    [SerializeField] private Transform _firePoint;
+    [SerializeField] private EventAsset OnLevelUp;
 
     private WeaponItem _weaponItem;
     private ProjectilePool _pool;
@@ -99,6 +100,13 @@ public class Weapon : MonoBehaviour, ISwapProgression
     {
         _weaponItem = item;
         UpdateVisuals(_weaponItem);
+        FireOnLevelUpEvent();
+    }
+
+    private void FireOnLevelUpEvent()
+    {
+        if (OnLevelUp == null) { return; }
+        OnLevelUp.Invoke(_level);
     }
 
     private void UpdateVisuals(WeaponItem item)
