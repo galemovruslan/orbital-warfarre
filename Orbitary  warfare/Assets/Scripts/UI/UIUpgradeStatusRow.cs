@@ -11,9 +11,14 @@ public class UIUpgradeStatusRow : MonoBehaviour
     private int _level;
     private List<GameObject> _iconList = new List<GameObject>();
 
-    private void Awake()
+    private void OnEnable()
     {
         OnStatusChanged.AddListener(ChangeLevel);
+    }
+
+    private void OnDisable()
+    {
+        OnStatusChanged.RemoveListener(ChangeLevel);
     }
 
     public void ChangeLevel(int newLevel)

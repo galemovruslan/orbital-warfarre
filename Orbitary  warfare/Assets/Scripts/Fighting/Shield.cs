@@ -60,6 +60,7 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType, ISwapProgres
         }
     }
 
+
     public void TakeDamage(float amount)
     {
         if (_currentShield == null)
