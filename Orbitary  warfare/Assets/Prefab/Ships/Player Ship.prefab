@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 6897072904619092710}
   - component: {fileID: 8844512356139439644}
   - component: {fileID: 6095667486821549100}
+  - component: {fileID: 9428529}
   m_Layer: 7
   m_Name: Player Ship
   m_TagString: Untagged
@@ -152,7 +153,6 @@ Transform:
   - {fileID: 703174075250881166}
   - {fileID: 1488269842845108719}
   - {fileID: 783722836253135647}
-  - {fileID: 1381197399257613716}
   - {fileID: 8844512356962229860}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c021ab3b9a8049945a224222e5b8df9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 20
+  _maxHealth: 3
 --- !u!114 &6095667486821549100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +288,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a02b426d78df65c4c8576beaa64f7e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnStateChange: {fileID: 11400000, guid: 61cd081c2255f3c40b7824637e30b547, type: 2}
+--- !u!114 &9428529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584083988927983303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c916099741ca048beb527fab00f339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _repository: {fileID: 11400000, guid: 1b4d357ce30180248893fa195d987c0e, type: 2}
+--- !u!114 &662988944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4252769443355377469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f090ace37ec22114eb6fa62b1af8cb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7686236700483589979
@@ -314,12 +340,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7686236700483589979}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.548, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.11143009, z: 0}
+  m_LocalScale: {x: 1.4285717, y: 1.4285717, z: 1}
   m_Children: []
-  m_Father: {fileID: 7555116849602654839}
-  m_RootOrder: 3
+  m_Father: {fileID: 6824430955859709146}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &7003438081326999815
 TrailRenderer:
@@ -453,9 +479,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8195756193894111267}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.4699993, y: 0, z: 0}
+  m_LocalPosition: {x: -0.448, y: -0, z: 0}
   m_LocalScale: {x: 0.69999975, y: 0.6999997, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1381197399257613716}
   m_Father: {fileID: 703174075250881166}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
@@ -577,6 +604,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Standart Weapon
       objectReference: {fileID: 0}
+    - target: {fileID: 4962797482707178368, guid: 6c81362f4286afc4cac51a4de34f2cbe, type: 3}
+      propertyPath: OnLevelUp
+      value: 
+      objectReference: {fileID: 11400000, guid: 9ad4163aa622c5641b80bbe9bb669b05, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c81362f4286afc4cac51a4de34f2cbe, type: 3}
 --- !u!114 &4740679893666505747 stripped
@@ -650,6 +681,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8350005293186547340, guid: beca64f5212aeaf40b997970d233c5e1, type: 3}
+      propertyPath: OnLevelUp
+      value: 
+      objectReference: {fileID: 11400000, guid: d0b319588b737a848ba44a3a40655d92, type: 2}
+    - target: {fileID: 8350005293186547340, guid: beca64f5212aeaf40b997970d233c5e1, type: 3}
       propertyPath: _layoutProgression
       value: 
       objectReference: {fileID: 11400000, guid: 6ad14b877c843744fb1419e9e0eb29ee, type: 2}
@@ -671,6 +706,11 @@ PrefabInstance:
       objectReference: {fileID: 325639194618369668}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: beca64f5212aeaf40b997970d233c5e1, type: 3}
+--- !u!1 &4252769443355377469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1655637977871858115, guid: beca64f5212aeaf40b997970d233c5e1, type: 3}
+  m_PrefabInstance: {fileID: 3314331286728312574}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1488269842845108719 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4132539981037178641, guid: beca64f5212aeaf40b997970d233c5e1, type: 3}
@@ -763,15 +803,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5560009375417632449, guid: 7cabf81360780894abc96b297f7be5a9, type: 3}
       propertyPath: _level
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5560009375417632449, guid: 7cabf81360780894abc96b297f7be5a9, type: 3}
+      propertyPath: OnLevelUp
+      value: 
+      objectReference: {fileID: 11400000, guid: 88504e78746a9fc4594abc31266adf81, type: 2}
     - target: {fileID: 5560009375417632449, guid: 7cabf81360780894abc96b297f7be5a9, type: 3}
       propertyPath: _currentStock
       value: 
       objectReference: {fileID: 11400000, guid: 136dade5ca37ba64c88fc3d1b407a2dd, type: 2}
     - target: {fileID: 5560009375417632450, guid: 7cabf81360780894abc96b297f7be5a9, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5560009375417632450, guid: 7cabf81360780894abc96b297f7be5a9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -892,6 +936,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Standart Weapon (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4962797482707178368, guid: 6c81362f4286afc4cac51a4de34f2cbe, type: 3}
+      propertyPath: OnLevelUp
+      value: 
+      objectReference: {fileID: 11400000, guid: 9ad4163aa622c5641b80bbe9bb669b05, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c81362f4286afc4cac51a4de34f2cbe, type: 3}
 --- !u!114 &325639194618369668 stripped
@@ -960,6 +1008,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Standart Weapon (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4962797482707178368, guid: 6c81362f4286afc4cac51a4de34f2cbe, type: 3}
+      propertyPath: OnLevelUp
+      value: 
+      objectReference: {fileID: 11400000, guid: 9ad4163aa622c5641b80bbe9bb669b05, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c81362f4286afc4cac51a4de34f2cbe, type: 3}
 --- !u!114 &4225766196960696115 stripped

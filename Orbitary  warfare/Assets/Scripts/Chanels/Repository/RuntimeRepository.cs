@@ -19,6 +19,12 @@ public class RuntimeRepository : ScriptableObject
         _data.Add(newObject);
     }
 
+    public void RemoveObject(GameObject gameObject)
+    {
+        if (!_data.Contains(gameObject)) { return; }
+        _data.Remove(gameObject);
+    }
+
     public List<GameObject> GetObjects()
     {
         return _data;

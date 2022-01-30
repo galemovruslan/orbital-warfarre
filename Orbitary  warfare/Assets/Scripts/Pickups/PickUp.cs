@@ -29,6 +29,9 @@ public class PickUp : MonoBehaviour
 
     private bool TryPickup(GameObject pickUpper)
     {
+        if (pickUpper.gameObject.layer == LayerMask.NameToLayer("Planet")) { return true; }
+        if (pickUpper.gameObject.layer != LayerMask.NameToLayer("Player")) { return false; }
+
         switch (_items.Type)
         {
             case ProgressionItem.ItemType.Shield:

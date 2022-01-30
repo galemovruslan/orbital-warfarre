@@ -5,8 +5,29 @@ using UnityEngine;
 public class PickUpSpawner : MonoBehaviour
 {
     [SerializeField] private Variant[] _variants;
+    [Min(0.1f)] [SerializeField] private float _spawnInterval = 1f;
+    [Min(0)] [SerializeField] private float _timeOffset = 0f;
 
-    [ContextMenu("Spawn")]
+    private float _nextSpawnTime;
+    private float _currentTime;
+
+    private void OnEnable()
+    {
+        _nextSpawnTime = _timeOffset;
+        _currentTime = 0f;
+    }
+
+    private void Update()
+    {
+        _currentTime += Time.deltaTime;
+
+        if (_currentTime < _nextSpawnTime) { return; }
+
+        SpawnRandom();
+
+        _nextSpawnTime += _spawnInterval;
+    }
+
     public void SpawnRandom()
     {
         int[] weights = GetWeights(_variants);

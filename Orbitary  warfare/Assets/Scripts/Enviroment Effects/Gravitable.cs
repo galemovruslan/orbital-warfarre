@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Gravitable : MonoBehaviour
 {
+    public event Action<Gravitable> BeforeDestroy;
 
     Vector3 _velocity = Vector3.zero;
 
@@ -17,6 +19,11 @@ public class Gravitable : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    private void OnDestroy()
+    {
+        BeforeDestroy?.Invoke(this);
     }
 
     public void ApplyForce(Vector3 force)

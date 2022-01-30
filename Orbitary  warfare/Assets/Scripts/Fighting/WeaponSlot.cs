@@ -29,10 +29,12 @@ public class WeaponSlot : MonoBehaviour
     private void UpdateLayout()
     {
         var layoutItem = _layoutProgression.GetItem(_level) as WeaponLayoutItem;
+
         foreach (var weapon in _weapons)
         {
             weapon.DisableWeapon();
         }
+
         foreach (var index in layoutItem.EnabledWeapons)
         {
             _weapons[index - 1].EnableWeapon();

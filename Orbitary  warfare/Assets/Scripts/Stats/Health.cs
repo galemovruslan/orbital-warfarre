@@ -19,7 +19,7 @@ public class Health : MonoBehaviour, IDamageable
 
     public void TakeDamage(float amount)
     {
-        _health -= amount;
+        _health = Mathf.Max(0, _health - amount);
         OnTakeDamage?.Invoke(_health, _maxHealth);
 
         if(_health <= 0)

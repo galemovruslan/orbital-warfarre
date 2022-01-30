@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,7 @@ public class Gravitator : MonoBehaviour
     [SerializeField] private Transform _visuals;
     [SerializeField] private CircleCollider2D _surfaceCollider;
 
-    private HashSet<Gravitable> effectedGravitables = new HashSet<Gravitable>();
+    private HashSet<Gravitable> _effectedGravitables = new HashSet<Gravitable>();
 
     private void OnValidate()
     {
@@ -34,29 +35,32 @@ public class Gravitator : MonoBehaviour
     {
         if (collision.TryGetComponent<Gravitable>(out Gravitable gravitable))
         {
-            effectedGravitables.Add(gravitable);
-            if (collision.TryGetComponent<Health>(out Health health))
-            {
-                health.OnDestroy += DeleteFromEffected;
-            }
+            _effectedGravitables.Add(gravitable);
+            gravitable.BeforeDestroy += RemoveGravitable;
+            //if (collision.TryGetComponent<Health>(out Health health))
+            //{
+            //    health.OnDestroy += DeleteFromEffected;
+            //}
         }
     }
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.TryGetComponent<Gravitable>(out Gravitable gravitable))
         {
-            effectedGravitables.Remove(gravitable);
-            if (collision.TryGetComponent<Health>(out Health health))
-            {
-                health.OnDestroy -= DeleteFromEffected;
-            }
+            _effectedGravitables.Remove(gravitable);
+            gravitable.BeforeDestroy -= RemoveGravitable;
+            //if (collision.TryGetComponent<Health>(out Health health))
+            //{
+            //    health.OnDestroy -= DeleteFromEffected;
+            //}
         }
     }
 
     private void FixedUpdate()
     {
-        foreach (var gravitable in effectedGravitables)
+        foreach (var gravitable in _effectedGravitables)
         {
             gravitable.ApplyForce(CalculateGravityForce(gravitable));
         }
@@ -73,7 +77,13 @@ public class Gravitator : MonoBehaviour
 
     private void DeleteFromEffected(GameObject go)
     {
-        effectedGravitables.Remove(go.GetComponent<Gravitable>());
+        _effectedGravitables.Remove(go.GetComponent<Gravitable>());
+    }
+
+    private void RemoveGravitable(Gravitable gravitable)
+    {
+        _effectedGravitables.Remove(gravitable);
+        gravitable.BeforeDestroy -= RemoveGravitable;
     }
 
 }

@@ -21,6 +21,11 @@ public class Weapon : MonoBehaviour, ISwapProgression
         _visuals = GetComponentInChildren<UpgradableVisuals>();
         _pool = GetComponent<ProjectilePool>();
 
+        
+    }
+
+    private void Start()
+    {
         if (_weaponStock != null)
         {
             SetWeapon(_weaponStock.GetItem(_level) as WeaponItem);

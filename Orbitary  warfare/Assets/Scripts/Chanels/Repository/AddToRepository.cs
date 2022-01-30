@@ -6,11 +6,19 @@ public class AddToRepository : MonoBehaviour
 {
     [SerializeField] private RuntimeRepository _repository;
 
-    private void Awake()
+    private void OnEnable()
     {
         if(_repository != null)
         {
             _repository.AddObject(this.gameObject);
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (_repository != null)
+        {
+            _repository.RemoveObject(this.gameObject);
         }
     }
 }

@@ -23,5 +23,4 @@ public class Player : MonoBehaviour
         OnStateChange.Invoke(-1);
     }
 
-
 }

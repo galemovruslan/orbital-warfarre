@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1575655673}
   - component: {fileID: 1575655674}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,8 @@ GameObject:
   - component: {fileID: 7962161614274108330}
   - component: {fileID: 7962161614274108328}
   - component: {fileID: 816635283}
-  m_Layer: 0
+  - component: {fileID: 3803109542324707907}
+  m_Layer: 13
   m_Name: Planet Small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,6 +189,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 1000
+--- !u!114 &3803109542324707907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7962161614274108329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37ccde0f76a0ca499b7532ee28bc0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9173784527334956726
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +255,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7962161614274108327}
     m_Modifications:
+    - target: {fileID: 454671605446662069, guid: c89db85e4f991cb41944ffc4e8de9e39, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742748660160819253, guid: c89db85e4f991cb41944ffc4e8de9e39, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 4152430837155466324, guid: c89db85e4f991cb41944ffc4e8de9e39, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -289,6 +310,14 @@ PrefabInstance:
     - target: {fileID: 5735255158430599421, guid: c89db85e4f991cb41944ffc4e8de9e39, type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735255158430599421, guid: c89db85e4f991cb41944ffc4e8de9e39, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764853503145103483, guid: c89db85e4f991cb41944ffc4e8de9e39, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c89db85e4f991cb41944ffc4e8de9e39, type: 3}

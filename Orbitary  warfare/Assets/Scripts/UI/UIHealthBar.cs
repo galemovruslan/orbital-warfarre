@@ -9,18 +9,19 @@ public class UIHealthBar : MonoBehaviour
 
     private Health _playerHealth;
 
-    private void Awake()
+    private void Start()
     {
-         _playerHealth = _playerRepository.GetObjects()[0].GetComponent<Health>();
-    }
+        _playerHealth = _playerRepository.GetObjects()[0].GetComponent<Health>();
 
-    private void OnEnable()
-    {
+        if (_playerHealth == null) { return; }
+
         _playerHealth.OnTakeDamage += UpdateBar;
     }
 
     private void OnDisable()
     {
+        if (_playerHealth == null) { return; }
+
         _playerHealth.OnTakeDamage -= UpdateBar;
     }
 

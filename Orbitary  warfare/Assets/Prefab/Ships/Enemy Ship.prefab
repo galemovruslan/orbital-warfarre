@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 325d8109bdc7a054ebaa8df9440a8287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mass: 0.5
+  _mass: 0.2
 --- !u!114 &6897072904619092710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
   _stopRadius: 0.5
   _avoidRange: 9
   _scanStart: {fileID: 7678400524506364509}
-  _rayAngleRange: 70
+  _rayAngleRange: 88
   _rayAmount: 11
   _layerMask:
     serializedVersion: 2
