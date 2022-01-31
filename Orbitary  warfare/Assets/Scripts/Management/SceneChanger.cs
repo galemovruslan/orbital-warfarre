@@ -10,7 +10,7 @@ public class SceneChanger : MonoBehaviour
 
     private void Awake()
     {
-        if(Insance == null)
+        if (Insance == null)
         {
             Insance = this;
         }
@@ -32,4 +32,10 @@ public class SceneChanger : MonoBehaviour
         Change(currentId);
     }
 
+    public void QuitGame()
+    {
+        PopUpWindow.Instance.Show("Quit Game?", 
+            () => Application.Quit(), 
+            () => { });
+    }
 }
