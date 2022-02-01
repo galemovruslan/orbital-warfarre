@@ -6,19 +6,19 @@ using System.Linq;
 public class UIUpgradeStatusRow : MonoBehaviour
 {
     [SerializeField] private GameObject _icon;
-    [SerializeField] private EventAsset OnStatusChanged;
+    [SerializeField] private EventAsset OnChangeLevel;
 
     private int _level;
     private List<GameObject> _iconList = new List<GameObject>();
 
     private void OnEnable()
     {
-        OnStatusChanged.AddListener(ChangeLevel);
+        OnChangeLevel.AddListener(ChangeLevel);
     }
 
     private void OnDisable()
     {
-        OnStatusChanged.RemoveListener(ChangeLevel);
+        OnChangeLevel.RemoveListener(ChangeLevel);
     }
 
     public void ChangeLevel(int newLevel)

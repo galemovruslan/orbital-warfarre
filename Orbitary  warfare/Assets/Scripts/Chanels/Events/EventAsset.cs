@@ -41,6 +41,4 @@ public class EventAsset : ScriptableObject
         }
     }
 
-
-
 }

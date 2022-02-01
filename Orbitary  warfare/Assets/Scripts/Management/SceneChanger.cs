@@ -5,20 +5,33 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
+    public static readonly int RestartCode = -1;
+    public static readonly int QuitCode = -2;
 
-    public static SceneChanger Insance = null;
+    [SerializeField] private EventAsset _changeSceneRequest;
 
-    private void Awake()
+
+    private void OnEnable()
     {
-        if (Insance == null)
+        _changeSceneRequest.AddListener(ProcessRequest);
+    }
+
+    private void OnDisable()
+    {
+        _changeSceneRequest.RemoveListener(ProcessRequest);
+    }
+
+    private void ProcessRequest(int code)
+    {
+        if (code == RestartCode)
         {
-            Insance = this;
+            RestartCurrent();
         }
         else
         {
-            Destroy(gameObject);
+            Change(code);
         }
-        DontDestroyOnLoad(gameObject);
+
     }
 
     public void Change(int sceneNum)
@@ -38,4 +51,11 @@ public class SceneChanger : MonoBehaviour
             () => Application.Quit(), 
             () => { });
     }
+}
+
+
+public enum GameStateCommandType
+{
+    Restart,
+    Pause
 }

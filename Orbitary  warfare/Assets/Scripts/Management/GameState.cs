@@ -5,28 +5,20 @@ using UnityEngine;
 public class GameState : MonoBehaviour
 {
 
-    [SerializeField] private EventAsset OnStateChange;
+    [SerializeField] private PauseMenu _pauseMenu;
 
-    private void OnEnable()
+    private void Update()
     {
-        OnStateChange.AddListener(ChangeState);
+        MenuCommands();
     }
 
-    private void OnDisable()
+    private void MenuCommands()
     {
-        OnStateChange.RemoveListener(ChangeState);
-    }
-
-    private void ChangeState(int stateIdx)
-    {
-        switch (stateIdx) 
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            case -1:
-                SceneChanger.Insance.RestartCurrent();
-                break;
+            _pauseMenu.Togle();
         }
-
-
     }
+
 
 }

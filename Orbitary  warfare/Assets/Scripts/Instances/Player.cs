@@ -18,9 +18,9 @@ public class Player : MonoBehaviour
         _health.OnDestroy += PlayerDestroy;
     }
 
-    private void PlayerDestroy( GameObject gameObject)
+    private void PlayerDestroy(GameObject gameObject)
     {
-        OnStateChange.Invoke(-1);
+        OnStateChange.Invoke(SceneChanger.RestartCode);
     }
 
 }
