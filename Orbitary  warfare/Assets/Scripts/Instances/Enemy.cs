@@ -12,12 +12,21 @@ public class Enemy : MonoBehaviour, ITargetHelper
     private ShipMovement _targetMovement;
     private AgentBehaviour _behaviour;
     private AIShooter _shooter;
+    private string _parentName = "Enemy target";
+    private GameObject _targetParent;
 
     protected virtual void Awake()
     {
         
         _targetPoint = new GameObject("Enemy's target").transform;
         _targetObject = _defaultTarget;
+
+        _targetParent = GameObject.Find(_parentName);
+        if (_targetParent == null)
+        {
+            _targetParent = new GameObject(_parentName);
+        }
+        _targetPoint.parent = _targetParent.transform;
 
         ShipMovement shipMovement = GetComponent<ShipMovement>();
 

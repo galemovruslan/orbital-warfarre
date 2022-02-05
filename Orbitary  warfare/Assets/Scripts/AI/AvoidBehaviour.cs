@@ -22,6 +22,7 @@ public class AvoidBehaviour : SeekBehaviour
     {
         base.Awake();
         _avoidVMarker = new GameObject($"{name}'s avoidance target ").transform;
+        _avoidVMarker.transform.parent = _auxTargetParent.transform;
     }
 
     protected override Steering GetSteering()

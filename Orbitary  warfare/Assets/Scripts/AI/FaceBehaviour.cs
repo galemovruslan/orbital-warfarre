@@ -12,6 +12,7 @@ public class FaceBehaviour : AlignBehaviour
         base.Awake();
         _faceTarget = _target;
         _target = new GameObject($"{name}'s target Aux").transform;
+        _target.parent = _auxTargetParent.transform;
     }
 
     private void OnDestroy()

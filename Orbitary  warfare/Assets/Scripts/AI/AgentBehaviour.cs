@@ -10,11 +10,18 @@ public abstract class AgentBehaviour : MonoBehaviour
     [SerializeField] protected float _weight = 1f;
 
     protected Vector3 _velocity => _agent.Velocity;
+    protected GameObject _auxTargetParent;
 
+    private readonly string _auxTargetParentName = "Target Parent";
     private AIAgent _agent;
 
     protected virtual void Awake()
     {
+        _auxTargetParent = GameObject.Find(_auxTargetParentName);
+        if (_auxTargetParent == null)
+        {
+            _auxTargetParent = new GameObject(_auxTargetParentName);
+        }
         _agent = GetComponent<AIAgent>();
     }
 
