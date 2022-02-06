@@ -8,9 +8,11 @@ public class ShopItem : ScriptableObject
     public int Price { get => _price; }
     public string Name { get => _name; }
     public Sprite Sprite { get => _sprite; }
+    public GameObject Pickup { get => _pickup; }
 
     [SerializeField] private string _name;  
     [SerializeField] private int _price;
     [SerializeField] private Sprite _sprite;
+    [SerializeField] private GameObject _pickup;
 
 }

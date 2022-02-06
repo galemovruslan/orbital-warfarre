@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad28adc09073ff543858710804c5a4aa, type: 3}
-  m_Name: Shield
+  m_Name: Projectile
   m_EditorClassIdentifier: 
-  _name: Advanced Shield
-  _price: 100
-  _sprite: {fileID: 21300000, guid: c2f7d4f2aedb1c043874a607b26ec55f, type: 3}
-  _pickup: {fileID: 5828238493772931464, guid: edbf25c709dc3184f921ec7080d560ea, type: 3}
+  _name: Advanced projectile
+  _price: 150
+  _sprite: {fileID: 21300000, guid: 67c885b55304d234ba8b3670ac204f85, type: 3}
+  _pickup: {fileID: 5828238493772931464, guid: d97f0129c93c19746bfc187bed87d89c, type: 3}

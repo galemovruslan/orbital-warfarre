@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 8844512356139439644}
   - component: {fileID: 6095667486821549100}
   - component: {fileID: 9428529}
+  - component: {fileID: 5700589356130995167}
   m_Layer: 7
   m_Name: Player Ship
   m_TagString: Untagged
@@ -238,6 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3ac5c15f4b9094bab21cadce45cf38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseRequest: {fileID: 11400000, guid: 1a194925d13f7ef44a722d0207f23c92, type: 2}
 --- !u!114 &1979010668910808526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +306,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _repository: {fileID: 11400000, guid: 1b4d357ce30180248893fa195d987c0e, type: 2}
+--- !u!114 &5700589356130995167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584083988927983303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0fc4dfab44e3c944a2b07f516b5af69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &662988944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -706,14 +720,14 @@ PrefabInstance:
       objectReference: {fileID: 325639194618369668}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: beca64f5212aeaf40b997970d233c5e1, type: 3}
---- !u!1 &4252769443355377469 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1655637977871858115, guid: beca64f5212aeaf40b997970d233c5e1, type: 3}
-  m_PrefabInstance: {fileID: 3314331286728312574}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1488269842845108719 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4132539981037178641, guid: beca64f5212aeaf40b997970d233c5e1, type: 3}
+  m_PrefabInstance: {fileID: 3314331286728312574}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4252769443355377469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1655637977871858115, guid: beca64f5212aeaf40b997970d233c5e1, type: 3}
   m_PrefabInstance: {fileID: 3314331286728312574}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3693006794079952715
@@ -801,6 +815,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7555116849602654839}
     m_Modifications:
+    - target: {fileID: 3509936656690642471, guid: 7cabf81360780894abc96b297f7be5a9, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215530990148408571, guid: 7cabf81360780894abc96b297f7be5a9, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 5560009375417632449, guid: 7cabf81360780894abc96b297f7be5a9, type: 3}
       propertyPath: _level
       value: 0
@@ -860,6 +882,10 @@ PrefabInstance:
     - target: {fileID: 5560009375417632455, guid: 7cabf81360780894abc96b297f7be5a9, type: 3}
       propertyPath: m_Name
       value: Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560009375417632455, guid: 7cabf81360780894abc96b297f7be5a9, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5560009376656984135, guid: 7cabf81360780894abc96b297f7be5a9, type: 3}
       propertyPath: m_Color.b

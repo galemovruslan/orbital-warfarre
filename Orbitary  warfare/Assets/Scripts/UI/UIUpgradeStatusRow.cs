@@ -23,7 +23,7 @@ public class UIUpgradeStatusRow : MonoBehaviour
 
     public void ChangeLevel(int newLevel)
     {
-        if(_level < newLevel)
+        if(_level > newLevel)
         {
             EraseRow();
         }

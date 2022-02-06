@@ -8,17 +8,11 @@ public class AddToRepository : MonoBehaviour
 
     private void OnEnable()
     {
-        if(_repository != null)
-        {
-            _repository.AddObject(this.gameObject);
-        }
+        _repository.AddObject(this.gameObject);
     }
 
     private void OnDisable()
     {
-        if (_repository != null)
-        {
-            _repository.RemoveObject(this.gameObject);
-        }
+        _repository.RemoveObject(this.gameObject);
     }
 }
