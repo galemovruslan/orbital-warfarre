@@ -19,7 +19,11 @@ public class Bank : MonoBehaviour
 
     private void OnDisable()
     {
-        _onRewardGiven.RemoveListener(Add);
+        _onRewardGiven.RemoveListener(Add); 
+    }
+    private void OnDestroy()
+    {
+        OnChange = null;
     }
 
     private void Update()

@@ -20,6 +20,7 @@ public class UIBank : MonoBehaviour
 
     private void OnDisable()
     {
+        if (_bank == null) { return; }
         _bank.OnChange -= UpdateUI;
     }
 

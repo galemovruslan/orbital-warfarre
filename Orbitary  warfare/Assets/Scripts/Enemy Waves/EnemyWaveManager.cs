@@ -64,7 +64,6 @@ public class EnemyWaveManager : MonoBehaviour
     [System.Serializable]
     private struct WaveDescription
     {
-        public int Number;
         public WaveContent _content;
         public EnemySpawner[] _spawners;
     }

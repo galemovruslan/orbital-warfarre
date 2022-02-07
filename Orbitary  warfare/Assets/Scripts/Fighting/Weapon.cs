@@ -7,13 +7,13 @@ public class Weapon : MonoBehaviour, ISwapProgression
     [SerializeField] private ProjectileItem _projectile;
     [SerializeField] private Transform _firePoint;
     [SerializeField] private EventAsset OnLevelUp;
+    [Range(1,3)][SerializeField] private int _level = 1;
 
     private WeaponItem _weaponItem;
     private ProjectilePool _pool;
     private UpgradableVisuals _visuals;
 
     private float _nextFireTime = 0f;
-    private int _level = 1;
     private bool isEnabled = false;
 
     private void Awake()
