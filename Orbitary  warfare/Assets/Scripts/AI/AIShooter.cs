@@ -11,14 +11,14 @@ public class AIShooter : MonoBehaviour
 
     private float _cosAngleRange;
 
-    private void OnValidate()
-    {
-        _cosAngleRange = Mathf.Cos(_angleRange * Mathf.Deg2Rad);
-    }
-
     private void Awake()
     {
         _shooter = GetComponent<Shooter>();
+    }
+
+    private void Start()
+    {
+        _cosAngleRange = Mathf.Cos(_angleRange * Mathf.Deg2Rad);
     }
 
     public void TryShoot( Vector3 targetPosition)

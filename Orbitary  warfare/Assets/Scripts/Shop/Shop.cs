@@ -17,6 +17,7 @@ public class Shop : MonoBehaviour
     private void Awake()
     {
         _slots = GetComponentsInChildren<ShopSlot>();
+        gameObject.SetActive(false);
     }
 
     private void OnEnable()

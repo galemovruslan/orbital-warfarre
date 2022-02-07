@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(FaceBehaviour))]
-public class Turret : Enemy
+public class TurretAimer : EnemyAimer
 {
 
     protected override void Awake()

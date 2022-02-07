@@ -8,7 +8,19 @@ public class Bank : MonoBehaviour
     public int MoneyAmount { get => _moneyAmount; }
     public event Action<int> OnChange;
 
+    [SerializeField] private EventAsset _onRewardGiven;
+
     private int _moneyAmount = 0;
+
+    private void OnEnable()
+    {
+        _onRewardGiven.AddListener(Add);
+    }
+
+    private void OnDisable()
+    {
+        _onRewardGiven.RemoveListener(Add);
+    }
 
     private void Update()
     {

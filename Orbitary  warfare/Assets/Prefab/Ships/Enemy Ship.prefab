@@ -31,6 +31,22 @@ Transform:
   m_Father: {fileID: 7555116849602654839}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &716408501
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2582764580154153006}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 20
 --- !u!1 &2584083988927983303
 GameObject:
   m_ObjectHideFlags: 0
@@ -50,6 +66,7 @@ GameObject:
   - component: {fileID: 160574848}
   - component: {fileID: 5446452751893822955}
   - component: {fileID: 160574847}
+  - component: {fileID: 1311837230}
   m_Layer: 0
   m_Name: Enemy Ship
   m_TagString: Untagged
@@ -89,7 +106,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 0.5
-  m_LinearDrag: 1
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -141,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08204793b2f4b8b4e8e7742b2ffab1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _thrustPower: 8
+  _thrustPower: 40
   _rotationSpeed: 300
   _maxSpeed: 10
 --- !u!114 &1979010668910808526
@@ -218,7 +235,7 @@ MonoBehaviour:
   _rayAmount: 11
   _layerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 8193
   _toTargetMaxLength: 10
 --- !u!114 &5446452751893822955
 MonoBehaviour:
@@ -246,7 +263,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultTarget: {fileID: 0}
-  _predictionTime: 0
+  _predictionTime: 0.3
+  _playerRepo: {fileID: 11400000, guid: 1b4d357ce30180248893fa195d987c0e, type: 2}
+--- !u!114 &1311837230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584083988927983303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267c832a4434e554382e2b1f8fdd756c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _reward: 100
+  _onRewardGiven: {fileID: 11400000, guid: 1c3a2d7c8130b4d4fb8167183e89af22, type: 2}
 --- !u!1 &4021383090312547075
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,8 +454,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2582764581284831041, guid: 1023aabc1d94f1043840d0a55c9b2d38, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1023aabc1d94f1043840d0a55c9b2d38, type: 3}
+--- !u!1 &2582764580154153006 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2582764581284831053, guid: 1023aabc1d94f1043840d0a55c9b2d38, type: 3}
+  m_PrefabInstance: {fileID: 1199425379}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2582764580154152993 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2582764581284831042, guid: 1023aabc1d94f1043840d0a55c9b2d38, type: 3}
