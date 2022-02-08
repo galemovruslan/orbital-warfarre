@@ -18,6 +18,11 @@ public class Player : MonoBehaviour
         _health.OnDestroy += PlayerDestroy;
     }
 
+    public void Off()
+    {
+
+    }
+
     private void PlayerDestroy(GameObject gameObject)
     {
         OnStateChange.Invoke(SceneChanger.RestartCode);

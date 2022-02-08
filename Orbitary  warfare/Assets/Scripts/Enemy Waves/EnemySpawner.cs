@@ -27,6 +27,16 @@ public class EnemySpawner : MonoBehaviour
         spawnedEnemy.OnDeath += OnEnemyDeath;
     }
 
+    public void WipeAll()
+    {
+        foreach (var enemy in _enemies)
+        {
+            enemy.OnDeath -= OnEnemyDeath;
+            Destroy(enemy.gameObject);
+        }
+        _enemies.Clear();
+    }
+
     private void OnEnemyDeath(Enemy enemy)
     {
         _enemies.Remove(enemy);

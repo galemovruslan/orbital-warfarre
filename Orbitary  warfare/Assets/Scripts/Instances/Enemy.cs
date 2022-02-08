@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) { _health.TakeDamage(10000); }
+        //if (Input.GetKeyDown(KeyCode.E)) { _health.TakeDamage(10000); }
     }
 
     private void GiveReward(GameObject obj)

@@ -43,8 +43,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bdcb31e61c125a419150c2aed97132a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _descriptions:
-  - Number: 1
-    Enemies: {fileID: 11400000, guid: c24c8fd7a0c101c4c8a0858276b79707, type: 2}
-    UsedSpawners:
+  _requestRetry: {fileID: 11400000, guid: 7309f7d4e3576b7478334f3d36075cf7, type: 2}
+  _OnGameFinish: {fileID: 11400000, guid: fe68e24a9f5e5464f97a32296c98fb43, type: 2}
+  _waveDescriptions:
+  - _content: {fileID: 11400000, guid: c24c8fd7a0c101c4c8a0858276b79707, type: 2}
+    _spawners:
     - {fileID: 0}
+  - _content: {fileID: 11400000, guid: c9e4243bfe1998645b279a9e1273902c, type: 2}
+    _spawners:
+    - {fileID: 0}
+  - _content: {fileID: 11400000, guid: 96b78586c19c11a418f45e302cb1795c, type: 2}
+    _spawners:
+    - {fileID: 0}
+  - _content: {fileID: 11400000, guid: f89d621f3a038e94cb1654818442025b, type: 2}
+    _spawners:
+    - {fileID: 0}
+  - _content: {fileID: 11400000, guid: 25a73417f0191e64bb0bd4de7a67b4b8, type: 2}
+    _spawners:
+    - {fileID: 0}
+  - _content: {fileID: 11400000, guid: 7ac0c3fc2462f0b45bd53139753d09b4, type: 2}
+    _spawners:
+    - {fileID: 0}
+  - _content: {fileID: 11400000, guid: 002b8b3a9f422d2428d5906cc3eb7572, type: 2}
+    _spawners:
+    - {fileID: 0}
+  - _content: {fileID: 11400000, guid: 15dc71f34aa19fd4ab1cfcfc3645df31, type: 2}
+    _spawners:
+    - {fileID: 0}
+  - _content: {fileID: 11400000, guid: 1a9b7c1552b54774e981e65a81ed4a46, type: 2}
+    _spawners:
+    - {fileID: 0}
+  - _content: {fileID: 11400000, guid: 1db10a232b6027c478a4596b19a6f489, type: 2}
+    _spawners:
+    - {fileID: 0}
+  _waveSpawnDelay: 1

@@ -60,6 +60,10 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType, ISwapProgres
         }
     }
 
+    public void Heal(float amount)
+    {
+        _durability = Mathf.Min(_durability + amount, _currentShield.Durability);
+    }
 
     public void TakeDamage(float amount)
     {

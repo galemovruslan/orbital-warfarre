@@ -17,6 +17,11 @@ public class Health : MonoBehaviour, IDamageable
         _health = _maxHealth;
     }
 
+    public void Heal(float amount)
+    {
+        _health = Mathf.Min(_health + amount, _maxHealth);
+    }
+
     public void TakeDamage(float amount)
     {
         _health = Mathf.Max(0, _health - amount);

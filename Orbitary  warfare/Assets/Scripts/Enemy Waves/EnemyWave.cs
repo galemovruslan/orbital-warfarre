@@ -24,6 +24,15 @@ public class EnemyWave
         Spawn();
     }
 
+    public void ForceWipe()
+    {
+        foreach (var spawner in _spawners)
+        {
+            spawner.OnAllCleared -= SpawnerCleared;
+            spawner.WipeAll();
+        }
+    }
+
     private void Spawn()
     {
         foreach (Description item in _content.GetDescriptions())
