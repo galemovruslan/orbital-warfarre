@@ -41,7 +41,7 @@ public class Projectile : MonoBehaviour
         _lifeDuration += Time.deltaTime;
         if (_lifeDuration >= _lifeTimeSeconds)
         {
-            Pool.ReturnItem(this);
+            DestroySelf();
         }
     }
 
@@ -57,11 +57,23 @@ public class Projectile : MonoBehaviour
             target.TakeDamage(_damage);
             if (isTrigger)
             {
-                Pool.ReturnItem(this);
+                DestroySelf();
                 return;
             }
         }
         if (!isTrigger)
+        {
+            DestroySelf();
+        }
+    }
+
+    private void DestroySelf()
+    {
+        if (Pool == null)
+        {
+            Destroy(gameObject);
+        }
+        else
         {
             Pool.ReturnItem(this);
         }

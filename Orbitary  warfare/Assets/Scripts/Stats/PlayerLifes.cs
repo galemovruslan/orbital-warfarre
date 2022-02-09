@@ -5,60 +5,77 @@ using UnityEngine;
 
 public class PlayerLifes : MonoBehaviour
 {
-    [SerializeField] private GameObject _player;
-    [SerializeField] private int _lives;
+    [SerializeField] private Player _playerPrefab;
     [SerializeField] private EventAsset _onGameOver;
-    //[SerializeField] private EventAsset _onPlayerChange;
+    [SerializeField] private EventAsset _onPlayerChange;
     [SerializeField] private RuntimeRepository _playerRepo;
+    [SerializeField] private int _maxLives;
     [SerializeField] private Transform _playerParent;
     [SerializeField] private Transform _mainSpawn;
-    [SerializeField] private Transform _replacePlawn;
+    [SerializeField] private Transform _copyLocation;
 
     private Health _playerHealth;
-    private GameObject _playerState;
+    private Player _playerCopy;
+    private Player _activePlayer;
+    private int _lives;
 
     private void Awake()
     {
-        GameObject player = Instantiate<GameObject>(_player, _mainSpawn.position, Quaternion.identity, _playerParent);
-
-        for (int i = 1; i < _lives; i++)
-        {
-            player = Instantiate<GameObject>(_player, _replacePlawn.position, Quaternion.identity, _playerParent);
-            
-        }
+        _lives = _maxLives;
+        _activePlayer = Instantiate<Player>(_playerPrefab, _mainSpawn.position, Quaternion.identity, _playerParent);
+        _onPlayerChange.AddListener(OnSavePlayerRequired);
     }
 
     private void Start()
     {
-        _playerHealth = _playerRepo.GetObjects()[0].GetComponent<Health>();
-        _playerHealth.OnDestroy += LostLive;
-        //_onPlayerChange.AddListener(SavePlayer);
+        SavePlayer();
+        _playerHealth = _activePlayer.Health;
+        _playerHealth.OnDeath += LostLive;
     }
 
-    private void SavePlayer(int obj)
+    private void SavePlayer()
     {
-        _playerState = _playerRepo.GetObjects()[0];
+        if (_playerCopy != null)
+        {
+            Destroy(_playerCopy);
+        }
+        MakePlayerCopy();
     }
 
     private void LostLive(GameObject gameObject)
     {
         _lives--;
-        if(_lives < 0)
+        if(_lives <= 0)
         {
             _onGameOver.Invoke((int) GameOverCodes.Lose);
+            _lives = _maxLives;
         }
-        else
-        {
-            _playerState = gameObject;
-            RefreshPlayer();
-            Instantiate<GameObject>(_playerState, Vector3.zero, Quaternion.identity, _playerParent);
-        }
+        MakePlayerCopy();
+        RespawnPlayer();
+
     }
 
-    private void RefreshPlayer()
+    private void RespawnPlayer()
     {
-        _playerHealth.Heal(10000);
-        _playerState.GetComponentInChildren<Shield>().Heal(1000);
+        _activePlayer = Instantiate<Player>(_playerCopy, _mainSpawn.position, Quaternion.identity, _playerParent);
+        _activePlayer.gameObject.SetActive(true);
+        _playerHealth = _activePlayer.GetComponent<Health>();
+        _playerHealth.OnDeath += LostLive;
+        _activePlayer.Bank.Add(_playerCopy.Bank.MoneyAmount);
+    }
+
+    private void OnSavePlayerRequired(int idx)
+    {
+        SavePlayer();
+    }
+
+    private void MakePlayerCopy()
+    {
+        _playerCopy = Instantiate(_activePlayer, _copyLocation.position, Quaternion.identity);
+        _playerCopy.gameObject.SetActive(false);
+        _playerCopy.Health.Heal(1000);
+        _playerCopy.Shield.Heal(1000);
+        _playerCopy.Bank.Add(_activePlayer.Bank.MoneyAmount);
     }
 
 }

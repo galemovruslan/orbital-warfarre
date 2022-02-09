@@ -13,8 +13,8 @@ public class UIBank : MonoBehaviour
 
     private void Start()
     {
-        _bank = _playerRepository.GetObjects()[0].GetComponent<Bank>();
-        _bank.OnChange += UpdateUI;
+        OnRepositoryChange();
+        _playerRepository.OnRemove += OnRepositoryChange ;
         UpdateUI(_bank.MoneyAmount);
     }
 
@@ -27,5 +27,11 @@ public class UIBank : MonoBehaviour
     private void UpdateUI(int amount)
     {
         _amountText.text = amount.ToString();
+    }
+
+    private void OnRepositoryChange()
+    {
+        _bank = _playerRepository.GetObjects()[0].GetComponent<Bank>();
+        _bank.OnChange += UpdateUI;
     }
 }

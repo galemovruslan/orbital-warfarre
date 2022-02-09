@@ -4,28 +4,19 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private EventAsset OnStateChange;
+    private Health _health;
+    private Bank _bank;
+    private Shield _shield;
 
-    Health _health;
+    public Health Health { get => _health; }
+    public Bank Bank { get => _bank; }
+    public Shield Shield { get => _shield;  }
 
     private void Awake()
     {
         _health = GetComponent<Health>();
-    }
-
-    private void OnEnable()
-    {
-        _health.OnDestroy += PlayerDestroy;
-    }
-
-    public void Off()
-    {
-
-    }
-
-    private void PlayerDestroy(GameObject gameObject)
-    {
-        OnStateChange.Invoke(SceneChanger.RestartCode);
+        _bank = GetComponent<Bank>();
+        _shield = GetComponentInChildren<Shield>();
     }
 
 }

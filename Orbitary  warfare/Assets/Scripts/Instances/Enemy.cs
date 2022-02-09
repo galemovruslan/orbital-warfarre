@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         _health = GetComponent<Health>();
-        _health.OnDestroy += GiveReward;
+        _health.OnDeath += GiveReward;
     }
 
     private void Update()

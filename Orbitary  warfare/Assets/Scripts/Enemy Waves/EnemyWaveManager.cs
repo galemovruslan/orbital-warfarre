@@ -37,6 +37,7 @@ public class EnemyWaveManager : MonoBehaviour
     }
     private void OnRequestRetryHandler(int obj)
     {
+        WipeWave();
         StartWithWave(_currentWaveNumber);
     }
 

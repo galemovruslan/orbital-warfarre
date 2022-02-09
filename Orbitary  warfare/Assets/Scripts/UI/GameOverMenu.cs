@@ -18,6 +18,7 @@ public class GameOverMenu : MonoBehaviour
     private void Awake()
     {
         _onGameOver.AddListener(GameOverHandler);
+        gameObject.SetActive(false);
     }
 
     public void OnRetryButtonHandler()

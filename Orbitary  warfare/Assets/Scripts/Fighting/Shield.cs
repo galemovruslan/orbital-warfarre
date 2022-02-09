@@ -6,7 +6,7 @@ using UnityEngine;
 public class Shield : MonoBehaviour, IDamageable, IHaveShooterType, ISwapProgression
 {
     public event Action<float, float> OnTakeDamage;
-    public event Action<GameObject> OnDestroy;
+    public event Action<GameObject> OnDeath;
 
     public ShooterType Type { get; private set; }
     public int Level
@@ -62,6 +62,8 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType, ISwapProgres
 
     public void Heal(float amount)
     {
+        if(_level == 0) { return; }
+
         _durability = Mathf.Min(_durability + amount, _currentShield.Durability);
     }
 
@@ -77,7 +79,7 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType, ISwapProgres
         if (_durability <= 0)
         {
             Disable();
-            OnDestroy?.Invoke(this.gameObject);
+            OnDeath?.Invoke(this.gameObject);
         }
     }
 

@@ -1206,6 +1206,8 @@ MonoBehaviour:
   _timeText: {fileID: 5452271731560012013}
   _shipDestroyedText: {fileID: 3485795518406746744}
   _pauseRequest: {fileID: 11400000, guid: 1a194925d13f7ef44a722d0207f23c92, type: 2}
+  _retryRequest: {fileID: 11400000, guid: 7309f7d4e3576b7478334f3d36075cf7, type: 2}
+  _onGameOver: {fileID: 11400000, guid: fe68e24a9f5e5464f97a32296c98fb43, type: 2}
 --- !u!1 &4792067530980899551
 GameObject:
   m_ObjectHideFlags: 0

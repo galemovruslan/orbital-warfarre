@@ -18,13 +18,13 @@ public class ProjectilePool : MonoBehaviour
         //_pool = new List<Projectile>();
         _initialized = false;
     }
-    
+
     private void OnDestroy()
     {
         DestroyPoolContainings();
         _pool.Clear();
     }
-    
+
 
     public Projectile GetItem(ProjectileItem projectileSO)
     {
@@ -89,7 +89,13 @@ public class ProjectilePool : MonoBehaviour
     {
         foreach (var item in _pool)
         {
-            if (item != null)
+            if (item == null) { continue; }
+
+            if (item.isActiveAndEnabled)
+            {
+                item.Pool = null;
+            }
+            else
             {
                 Destroy(item.gameObject);
             }

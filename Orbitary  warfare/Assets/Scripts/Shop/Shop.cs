@@ -7,7 +7,7 @@ public class Shop : MonoBehaviour
 {
     [SerializeField] private RuntimeRepository _playerRepo;
     [SerializeField] private EventAsset _pauseRequest;
-    //[SerializeField] private EventAsset _onPlayerChange;
+    [SerializeField] private EventAsset _onPlayerChange;
     [SerializeField] private Button _buyButton; // used only for enabling/disabling button object
 
     private ShopSlot[] _slots;
@@ -33,7 +33,8 @@ public class Shop : MonoBehaviour
 
     private void Start()
     {
-        _bank = _playerRepo.GetObjects()[0].GetComponent<Bank>();
+        OnRepositoryChange();
+        _playerRepo.OnRemove += OnRepositoryChange;
     }
 
     private void OnDisable()
@@ -76,7 +77,13 @@ public class Shop : MonoBehaviour
     public void CloseButtonHandler()
     {
         _pauseRequest.Invoke((int)GamePauseRequestType.UnPause);
-        //_onPlayerChange.Invoke(0);
+        StartCoroutine(DelayedChangeNotification());
+    }
+
+    private IEnumerator DelayedChangeNotification()
+    {
+        yield return new WaitForSeconds(0.2f);
+        _onPlayerChange.Invoke(0);
         gameObject.SetActive(false);
     }
 
@@ -97,6 +104,10 @@ public class Shop : MonoBehaviour
             && _selectedSlots.Count != 0;
     }
 
+    private void OnRepositoryChange()
+    {
+        _bank = _playerRepo.GetObjects()[0].GetComponent<Bank>();
+    }
 
     private struct Receipt
     {
