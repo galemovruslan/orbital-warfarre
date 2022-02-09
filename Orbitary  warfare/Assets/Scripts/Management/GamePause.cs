@@ -10,6 +10,7 @@ public class GamePause : MonoBehaviour
 
     private bool _isPaused = false;
 
+
     private void OnEnable()
     {
         _pauseRequest.AddListener(ProcessRequest);

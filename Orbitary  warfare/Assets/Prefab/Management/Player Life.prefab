@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1624006390519576671
+--- !u!1 &7425258359945462361
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3591501262584439377}
-  - component: {fileID: 9038161209575014537}
+  - component: {fileID: 7425258359945462358}
+  - component: {fileID: 7425258359945462359}
   m_Layer: 0
-  m_Name: GamePause
+  m_Name: Player Life
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3591501262584439377
+--- !u!4 &7425258359945462358
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1624006390519576671}
+  m_GameObject: {fileID: 7425258359945462361}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,16 +31,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9038161209575014537
+--- !u!114 &7425258359945462359
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1624006390519576671}
+  m_GameObject: {fileID: 7425258359945462361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b93beaeb8f06d7458df8d93d2c40d8f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c6876f7d2c2eb2468307f0752ecc8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pauseRequest: {fileID: 11400000, guid: 1a194925d13f7ef44a722d0207f23c92, type: 2}
+  _playerPrefab: {fileID: 6095667486821549100, guid: b9f070defd1f13f4583d3b4a979b9ebe, type: 3}
+  _onGameOver: {fileID: 11400000, guid: fe68e24a9f5e5464f97a32296c98fb43, type: 2}
+  _onPlayerChange: {fileID: 11400000, guid: 1c80d4cdad25fd64c9527c3814c76241, type: 2}
+  _playerRepo: {fileID: 11400000, guid: 1b4d357ce30180248893fa195d987c0e, type: 2}
+  _maxLives: 2
+  _playerParent: {fileID: 0}
+  _mainSpawn: {fileID: 0}
+  _copyLocation: {fileID: 0}

@@ -41,4 +41,8 @@ public class PauseMenu : MonoBehaviour
         _isShown = false;
     }
 
+    private void OnDestroy()
+    {
+        Time.timeScale = 1f;
+    }
 }

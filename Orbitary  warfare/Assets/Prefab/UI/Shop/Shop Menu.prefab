@@ -799,7 +799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerRepo: {fileID: 11400000, guid: 1b4d357ce30180248893fa195d987c0e, type: 2}
   _pauseRequest: {fileID: 11400000, guid: 1a194925d13f7ef44a722d0207f23c92, type: 2}
-  _savePlayerRequest: {fileID: 11400000, guid: 1c80d4cdad25fd64c9527c3814c76241, type: 2}
+  _onPlayerChange: {fileID: 11400000, guid: 1c80d4cdad25fd64c9527c3814c76241, type: 2}
   _buyButton: {fileID: 8784974369996849439}
 --- !u!1 &8784974371619472730
 GameObject:
