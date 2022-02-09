@@ -159,8 +159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _thrustPower: 40
-  _rotationSpeed: 300
-  _maxSpeed: 10
+  _rotationSpeed: 150
+  _maxSpeed: 4
 --- !u!114 &1979010668910808526
 MonoBehaviour:
   m_ObjectHideFlags: 0
