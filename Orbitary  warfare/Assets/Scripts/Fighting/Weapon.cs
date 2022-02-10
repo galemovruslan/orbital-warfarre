@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour, ISwapProgression
     [SerializeField] private Transform _firePoint;
     [SerializeField] private EventAsset _onLevelUp;
     [Range(1,3)][SerializeField] private int _level = 1;
+    [SerializeField] private EventAsset _onFireProjectile;
 
     private WeaponItem _weaponItem;
     private ProjectilePool _pool;
@@ -41,22 +42,26 @@ public class Weapon : MonoBehaviour, ISwapProgression
     public void Fire(ShooterType shooterType)
     {
         if (!isEnabled) { return; }
-
-        if (Time.time >= _nextFireTime)
+        if (Time.time < _nextFireTime) { return; }
+        
+        if (_pool == null)
         {
-            if (_pool == null)
-            {
-                _pool = GetComponent<ProjectilePool>();
-            }
-
-            Projectile nextProjectile = _pool.GetItem(_projectile);
-            nextProjectile.transform.position = _firePoint.position;
-            nextProjectile.transform.rotation = _firePoint.rotation;
-
-            nextProjectile.Launch(_projectile.Speed, _projectile.Damage, shooterType);
-
-            _nextFireTime = Time.time + _weaponItem.TimeBetweenShots;
+            _pool = GetComponent<ProjectilePool>();
         }
+
+        Projectile nextProjectile = _pool.GetItem(_projectile);
+        nextProjectile.transform.position = _firePoint.position;
+        nextProjectile.transform.rotation = _firePoint.rotation;
+
+        nextProjectile.Launch(_projectile.Speed, _projectile.Damage, shooterType);
+
+        if(shooterType == ShooterType.player)
+        {
+            _onFireProjectile.Invoke(0);
+        }
+
+        _nextFireTime = Time.time + _weaponItem.TimeBetweenShots;
+        
     }
 
     public void SetNewProgression(ProgressionItem weaponStock, int level)

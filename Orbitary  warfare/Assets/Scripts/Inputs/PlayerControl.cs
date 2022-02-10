@@ -35,6 +35,11 @@ public class PlayerControl : MonoBehaviour
         _pauseRequest.AddListener(ProcessOnPauseEvent);
     }
 
+    private void OnDestroy()
+    {
+        _pauseRequest.RemoveListener(ProcessOnPauseEvent);
+    }
+
     private void Update()
     {
         if (!_isEnabled) { return; }

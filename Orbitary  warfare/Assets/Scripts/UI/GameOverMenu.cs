@@ -21,6 +21,10 @@ public class GameOverMenu : MonoBehaviour
         _onGameOver.AddListener(GameOverHandler);
         gameObject.SetActive(false);
     }
+    private void OnDestroy()
+    {
+        _onGameOver.RemoveListener(GameOverHandler);
+    }
 
     public void OnRetryButtonHandler()
     {
@@ -37,9 +41,6 @@ public class GameOverMenu : MonoBehaviour
         gameObject.SetActive(true);
         _timePlayedStatistics.Invoke((int)Time.time * 100);
     }
-
-
-
 }
 
 public enum GameOverCodes

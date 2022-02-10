@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
     public ProjectilePool Pool { private get; set; }
 
     [SerializeField] private float _lifeTimeSeconds = 5f;
+    [SerializeField] private EventAsset _onProjectileLanded;
 
     private Rigidbody2D _rigidbody;
     private ShooterType _type;
@@ -55,6 +56,12 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.TryGetComponent<IDamageable>(out IDamageable target))
         {
             target.TakeDamage(_damage);
+
+            if(typed != null &&
+                typed.Type == ShooterType.enemy)
+            {
+                _onProjectileLanded.Invoke(0);
+            }
             if (isTrigger)
             {
                 DestroySelf();

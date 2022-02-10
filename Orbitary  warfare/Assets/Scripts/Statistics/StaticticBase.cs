@@ -19,6 +19,11 @@ public abstract class StaticticBase : MonoBehaviour
         _onAddValue.AddListener(AddValue);
     }
 
+    private void OnDestroy()
+    {
+        _onAddValue.RemoveListener(AddValue);
+    }
+
     private void AddValue(int value)
     {
         _value = ProcessNewValue(value);

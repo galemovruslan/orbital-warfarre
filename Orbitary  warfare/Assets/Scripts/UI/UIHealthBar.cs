@@ -21,6 +21,8 @@ public class UIHealthBar : MonoBehaviour
 
     private void OnDisable()
     {
+        _playerRepository.OnRemove -= OnRepositoryChange;
+
         if (_playerHealth == null) { return; }
 
         _playerHealth.OnTakeDamage -= UpdateBar;
@@ -34,7 +36,10 @@ public class UIHealthBar : MonoBehaviour
 
     private void OnRepositoryChange()
     {
-        _playerHealth = _playerRepository.GetObjects()[0].GetComponent<Health>();
+        Health newHealth = _playerRepository.GetObjects()[0].GetComponent<Health>();
+        if(_playerHealth == newHealth) { return; }
+
+        _playerHealth = newHealth;
         _playerHealth.OnTakeDamage += UpdateBar;
         _bar.localScale = Vector3.one;
     }

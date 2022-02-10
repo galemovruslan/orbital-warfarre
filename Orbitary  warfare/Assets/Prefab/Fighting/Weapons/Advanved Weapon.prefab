@@ -80,7 +80,9 @@ MonoBehaviour:
   _weaponStock: {fileID: 11400000, guid: 16d9c69cbecf4ed4db02220646f028b7, type: 2}
   _projectile: {fileID: 11400000, guid: 4a2f16ce9a69a744b98aca142e63a8cc, type: 2}
   _firePoint: {fileID: 4535138938318250591}
-  OnLevelUp: {fileID: 0}
+  _onLevelUp: {fileID: 0}
+  _level: 1
+  _onFireProjectile: {fileID: 11400000, guid: b35f9e265f526e144810faac38812d5b, type: 2}
 --- !u!114 &281616849145286288
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -191,6 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifeTimeSeconds: 5
+  _onProjectileLanded: {fileID: 11400000, guid: 1333f4d0ebabd434b9213f6f2a6f8237, type: 2}
 --- !u!114 &-4883947516382929834
 MonoBehaviour:
   m_ObjectHideFlags: 0

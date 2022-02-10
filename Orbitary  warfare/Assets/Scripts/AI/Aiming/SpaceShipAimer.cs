@@ -13,6 +13,11 @@ public class SpaceShipAimer : EnemyAimer
         base.Start();
     }
 
+    private void OnDestroy()
+    {
+        _playerRepo.OnRemove -= OnRepositoryChange;
+    }
+
     private void OnRepositoryChange()
     {
         _defaultTarget = _playerRepo.GetObjects()[0].transform;

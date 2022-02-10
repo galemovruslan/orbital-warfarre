@@ -32,6 +32,11 @@ public class PlayerLifes : MonoBehaviour
         _playerHealth.OnDeath += LostLive;
     }
 
+    private void OnDestroy()
+    {
+        _onPlayerChange.RemoveListener(OnSavePlayerRequired);
+    }
+
     private void SavePlayer()
     {
         if (_playerCopy != null)

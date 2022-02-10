@@ -12,6 +12,11 @@ public class StatisticsAccuracy : StaticticBase
         base.Awake();
     }
 
+    private void OnDestroy()
+    {
+        _onProjectileLand.RemoveListener(AddLandedProjectile);
+    }
+
     private void AddLandedProjectile(int obj)
     {
         _landedProjectiles++;
@@ -24,6 +29,6 @@ public class StatisticsAccuracy : StaticticBase
 
     protected override void DisplayText()
     {
-        _statisticsText.text = string.Format("{0:F1} %", _landedProjectiles / _value * 100);
+        _statisticsText.text = string.Format("{0:F1}%", _landedProjectiles / _value * 100);
     }
 }

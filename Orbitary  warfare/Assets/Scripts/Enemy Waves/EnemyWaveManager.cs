@@ -23,6 +23,11 @@ public class EnemyWaveManager : MonoBehaviour
         _maxWaveNumber = _waveDescriptions.Length;
     }
 
+    private void OnDestroy()
+    {
+        _requestRetry.RemoveListener(OnRequestRetryHandler);
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
