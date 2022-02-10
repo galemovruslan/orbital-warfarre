@@ -2,24 +2,24 @@ using UnityEngine;
 
 public class StatisticsAccuracy : StaticticBase
 {
-    [SerializeField] private EventAsset _onProjectileLand;
+    [SerializeField] private EventAsset _onProjectileFire;
 
-    private float _landedProjectiles;
+    private float _firedProjectiles;
 
     protected override void Awake()
     {
-        _onProjectileLand.AddListener(AddLandedProjectile);
+        _onProjectileFire.AddListener(AddFiredProjectile);
         base.Awake();
     }
 
     private void OnDestroy()
     {
-        _onProjectileLand.RemoveListener(AddLandedProjectile);
+        _onProjectileFire.RemoveListener(AddFiredProjectile);
     }
 
-    private void AddLandedProjectile(int obj)
+    private void AddFiredProjectile(int obj)
     {
-        _landedProjectiles++;
+        _firedProjectiles++;
     }
 
     protected override float ProcessNewValue(int value)
@@ -29,6 +29,6 @@ public class StatisticsAccuracy : StaticticBase
 
     protected override void DisplayText()
     {
-        _statisticsText.text = string.Format("{0:F1}%", _landedProjectiles / _value * 100);
+        _statisticsText.text = string.Format("{0:F1}%", _value / _firedProjectiles * 100);
     }
 }

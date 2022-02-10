@@ -1236,8 +1236,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _statisticsText: {fileID: 1060849874393726291}
-  _onAddValue: {fileID: 11400000, guid: b35f9e265f526e144810faac38812d5b, type: 2}
-  _onProjectileLand: {fileID: 11400000, guid: 1333f4d0ebabd434b9213f6f2a6f8237, type: 2}
+  _onAddValue: {fileID: 11400000, guid: 1333f4d0ebabd434b9213f6f2a6f8237, type: 2}
+  _onProjectileFire: {fileID: 11400000, guid: b35f9e265f526e144810faac38812d5b, type: 2}
 --- !u!114 &8681548353688784945
 MonoBehaviour:
   m_ObjectHideFlags: 0

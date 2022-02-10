@@ -16,7 +16,7 @@ public class GameOverMenu : MonoBehaviour
     [SerializeField] private EventAsset _onGameOver;
     [SerializeField] private EventAsset _timePlayedStatistics;
 
-    private void Awake()
+    private void Start()
     {
         _onGameOver.AddListener(GameOverHandler);
         gameObject.SetActive(false);
