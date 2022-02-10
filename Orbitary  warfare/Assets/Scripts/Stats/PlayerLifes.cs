@@ -8,7 +8,6 @@ public class PlayerLifes : MonoBehaviour
     [SerializeField] private Player _playerPrefab;
     [SerializeField] private EventAsset _onGameOver;
     [SerializeField] private EventAsset _onPlayerChange;
-    [SerializeField] private RuntimeRepository _playerRepo;
     [SerializeField] private int _maxLives;
     [SerializeField] private Transform _playerParent;
     [SerializeField] private Transform _mainSpawn;

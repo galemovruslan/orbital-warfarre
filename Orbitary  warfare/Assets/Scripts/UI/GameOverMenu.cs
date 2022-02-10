@@ -6,14 +6,15 @@ using System;
 
 public class GameOverMenu : MonoBehaviour
 {
-
+    /*
     [SerializeField] private TextMeshProUGUI _accuracyText;
     [SerializeField] private TextMeshProUGUI _timeText;
     [SerializeField] private TextMeshProUGUI _shipDestroyedText;
-
+    */
     [SerializeField] private EventAsset _pauseRequest;
     [SerializeField] private EventAsset _retryRequest;
     [SerializeField] private EventAsset _onGameOver;
+    [SerializeField] private EventAsset _timePlayedStatistics;
 
     private void Awake()
     {
@@ -34,7 +35,10 @@ public class GameOverMenu : MonoBehaviour
 
         _pauseRequest.Invoke((int)GamePauseRequestType.Pause);
         gameObject.SetActive(true);
+        _timePlayedStatistics.Invoke((int)Time.time * 100);
     }
+
+
 
 }
 

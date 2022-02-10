@@ -401,7 +401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 679874132}
   m_Layer: 0
-  m_Name: Player Spawner
+  m_Name: Player Spawner Location
   m_TagString: Untagged
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1257,6 +1257,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1060849874393726291, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
+      propertyPath: m_text
+      value: 000
+      objectReference: {fileID: 0}
     - target: {fileID: 1171766249781212610, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1313,6 +1317,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1722236266}
+    - target: {fileID: 3485795518406746744, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
+      propertyPath: m_text
+      value: 000
+      objectReference: {fileID: 0}
     - target: {fileID: 3668515203521540510, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1336,6 +1344,10 @@ PrefabInstance:
     - target: {fileID: 4228464826235908911, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5452271731560012013, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
+      propertyPath: m_text
+      value: 00:00:00
       objectReference: {fileID: 0}
     - target: {fileID: 5955942021063147333, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
       propertyPath: m_AnchorMax.y

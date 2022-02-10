@@ -292,7 +292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02b426d78df65c4c8576beaa64f7e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnStateChange: {fileID: 11400000, guid: 61cd081c2255f3c40b7824637e30b547, type: 2}
 --- !u!114 &9428529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -619,10 +618,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Standart Weapon
       objectReference: {fileID: 0}
-    - target: {fileID: 4962797482707178368, guid: 6c81362f4286afc4cac51a4de34f2cbe, type: 3}
-      propertyPath: OnLevelUp
-      value: 
-      objectReference: {fileID: 11400000, guid: 9ad4163aa622c5641b80bbe9bb669b05, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c81362f4286afc4cac51a4de34f2cbe, type: 3}
 --- !u!114 &4740679893666505747 stripped

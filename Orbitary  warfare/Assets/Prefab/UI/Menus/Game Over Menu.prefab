@@ -1168,6 +1168,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8800962697587886840}
   - component: {fileID: 3826791672099931213}
+  - component: {fileID: 6035804261745241632}
+  - component: {fileID: 6691618066363088819}
+  - component: {fileID: 8681548353688784945}
   m_Layer: 0
   m_Name: Game Over Menu
   m_TagString: Untagged
@@ -1202,12 +1205,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35b3c7a424b2f146b2570ba3b9f0bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _accuracyText: {fileID: 1060849874393726291}
-  _timeText: {fileID: 5452271731560012013}
-  _shipDestroyedText: {fileID: 3485795518406746744}
   _pauseRequest: {fileID: 11400000, guid: 1a194925d13f7ef44a722d0207f23c92, type: 2}
   _retryRequest: {fileID: 11400000, guid: 7309f7d4e3576b7478334f3d36075cf7, type: 2}
   _onGameOver: {fileID: 11400000, guid: fe68e24a9f5e5464f97a32296c98fb43, type: 2}
+  _timePlayedStatistics: {fileID: 11400000, guid: 85f2b23f4bf788341834e3a802d296c9, type: 2}
+--- !u!114 &6035804261745241632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4228464826235908911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef144efc5cabadd4cb1c147addcfbdfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statisticsText: {fileID: 3485795518406746744}
+  _onAddValue: {fileID: 11400000, guid: 1c3a2d7c8130b4d4fb8167183e89af22, type: 2}
+--- !u!114 &6691618066363088819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4228464826235908911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73705d8c5b803b4cadaef596c66a4c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statisticsText: {fileID: 1060849874393726291}
+  _onAddValue: {fileID: 11400000, guid: b35f9e265f526e144810faac38812d5b, type: 2}
+  _onProjectileLand: {fileID: 11400000, guid: 1c3a2d7c8130b4d4fb8167183e89af22, type: 2}
+--- !u!114 &8681548353688784945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4228464826235908911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae14e0705d64354ea4b0c718c8a70ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statisticsText: {fileID: 5452271731560012013}
+  _onAddValue: {fileID: 11400000, guid: 85f2b23f4bf788341834e3a802d296c9, type: 2}
 --- !u!1 &4792067530980899551
 GameObject:
   m_ObjectHideFlags: 0
