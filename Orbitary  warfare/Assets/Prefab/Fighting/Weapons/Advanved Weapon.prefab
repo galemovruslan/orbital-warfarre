@@ -82,7 +82,7 @@ MonoBehaviour:
   _firePoint: {fileID: 4535138938318250591}
   _onLevelUp: {fileID: 0}
   _level: 1
-  _onFireProjectile: {fileID: 11400000, guid: b35f9e265f526e144810faac38812d5b, type: 2}
+  _onFireProjectile: {fileID: 11400000, guid: 8b1b346bc0b5bc649b64f2f3debd86b2, type: 2}
 --- !u!114 &281616849145286288
 MonoBehaviour:
   m_ObjectHideFlags: 0

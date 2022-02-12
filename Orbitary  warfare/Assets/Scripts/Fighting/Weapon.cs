@@ -55,11 +55,8 @@ public class Weapon : MonoBehaviour, ISwapProgression
 
         nextProjectile.Launch(_projectile.Speed, _projectile.Damage, shooterType);
 
-        if(shooterType == ShooterType.player)
-        {
-            _onFireProjectile.Invoke(0);
-        }
-
+        _onFireProjectile.Invoke(0);
+   
         _nextFireTime = Time.time + _weaponItem.TimeBetweenShots;
         
     }

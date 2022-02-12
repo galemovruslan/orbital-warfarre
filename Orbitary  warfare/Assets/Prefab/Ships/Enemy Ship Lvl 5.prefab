@@ -67,6 +67,7 @@ GameObject:
   - component: {fileID: 5446452751893822955}
   - component: {fileID: 160574847}
   - component: {fileID: 1311837230}
+  - component: {fileID: -7818643853426794943}
   m_Layer: 0
   m_Name: Enemy Ship Lvl 5
   m_TagString: Untagged
@@ -280,6 +281,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _reward: 500
   _onRewardGiven: {fileID: 11400000, guid: 1c3a2d7c8130b4d4fb8167183e89af22, type: 2}
+--- !u!114 &-7818643853426794943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584083988927983303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b3758de8ece6e43aa988dd5dd64998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 09e0b448e01395044bd73313d2ccfe8c, type: 3}
+  _playRequest: {fileID: 11400000, guid: 8b1b346bc0b5bc649b64f2f3debd86b2, type: 2}
 --- !u!1 &4021383090312547075
 GameObject:
   m_ObjectHideFlags: 0

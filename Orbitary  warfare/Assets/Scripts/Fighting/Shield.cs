@@ -27,6 +27,7 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType, ISwapProgres
     [SerializeField] private ProgressionItem _currentStock;
     [SerializeField] private int _level;
     [SerializeField] private EventAsset OnLevelUp;
+    [SerializeField] private EventAsset _onShieldBrake;
 
     private ShieldItem _currentShield;
 
@@ -80,6 +81,7 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType, ISwapProgres
         {
             Disable();
             OnDeath?.Invoke(this.gameObject);
+            _onShieldBrake.Invoke(0);
         }
     }
 

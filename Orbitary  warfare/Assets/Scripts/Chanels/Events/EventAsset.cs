@@ -7,7 +7,7 @@ using UnityEngine;
 public class EventAsset : ScriptableObject
 {
     private HashSet<Action<int>> _listeners = new HashSet<Action<int>>();
-
+    
     private void OnEnable()
     {
         _listeners.Clear();
@@ -42,3 +42,7 @@ public class EventAsset : ScriptableObject
     }
 
 }
+
+
+
+

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5560009375417632450}
   - component: {fileID: 5560009375417632449}
   - component: {fileID: 5560009375417632448}
+  - component: {fileID: 5853869179853233872}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
@@ -47,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentStock: {fileID: 0}
   _level: 0
+  OnLevelUp: {fileID: 0}
+  _onShieldBrake: {fileID: 11400000, guid: 593306c6585cafc499e2e0c4256ea411, type: 2}
 --- !u!58 &5560009375417632448
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -63,6 +66,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.1083333
+--- !u!114 &5853869179853233872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5560009375417632455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b3758de8ece6e43aa988dd5dd64998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: eb5390d8e6460b24db0dfea0fc368b19, type: 3}
+  _playRequest: {fileID: 11400000, guid: 593306c6585cafc499e2e0c4256ea411, type: 2}
 --- !u!1001 &8570564258695846118
 PrefabInstance:
   m_ObjectHideFlags: 0

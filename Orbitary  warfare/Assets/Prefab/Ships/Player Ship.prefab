@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 6095667486821549100}
   - component: {fileID: 9428529}
   - component: {fileID: 5700589356130995167}
+  - component: {fileID: 1674356952725746548}
   m_Layer: 7
   m_Name: Player Ship
   m_TagString: Untagged
@@ -317,6 +318,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _onRewardGiven: {fileID: 11400000, guid: 1c3a2d7c8130b4d4fb8167183e89af22, type: 2}
+--- !u!114 &1674356952725746548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584083988927983303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b3758de8ece6e43aa988dd5dd64998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: b29d428de7483f14c8e56d97362b7e2d, type: 3}
+  _playRequest: {fileID: 11400000, guid: b35f9e265f526e144810faac38812d5b, type: 2}
 --- !u!114 &662988944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -690,7 +705,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8350005293186547340, guid: beca64f5212aeaf40b997970d233c5e1, type: 3}
+      propertyPath: _onFire
+      value: 
+      objectReference: {fileID: 11400000, guid: ce6e4b01f0acc1a4d97114c77cc8507d, type: 2}
+    - target: {fileID: 8350005293186547340, guid: beca64f5212aeaf40b997970d233c5e1, type: 3}
       propertyPath: OnLevelUp
+      value: 
+      objectReference: {fileID: 11400000, guid: d0b319588b737a848ba44a3a40655d92, type: 2}
+    - target: {fileID: 8350005293186547340, guid: beca64f5212aeaf40b997970d233c5e1, type: 3}
+      propertyPath: _onLevelUp
       value: 
       objectReference: {fileID: 11400000, guid: d0b319588b737a848ba44a3a40655d92, type: 2}
     - target: {fileID: 8350005293186547340, guid: beca64f5212aeaf40b997970d233c5e1, type: 3}

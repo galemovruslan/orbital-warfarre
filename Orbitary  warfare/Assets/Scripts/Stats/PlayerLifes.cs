@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerLifes : MonoBehaviour
 {
     [SerializeField] private Player _playerPrefab;
+    [SerializeField] private EventAsset _onLoseLive;
     [SerializeField] private EventAsset _onGameOver;
     [SerializeField] private EventAsset _onPlayerChange;
     [SerializeField] private int _maxLives;
@@ -16,6 +17,7 @@ public class PlayerLifes : MonoBehaviour
     private Health _playerHealth;
     private Player _playerCopy;
     private Player _activePlayer;
+    private string _playerCopyName = "Player Copy";
     private int _lives;
 
     private void Awake()
@@ -41,20 +43,21 @@ public class PlayerLifes : MonoBehaviour
     {
         if (_playerCopy != null)
         {
-            Destroy(_playerCopy);
+            Destroy(_playerCopy.gameObject);
         }
         MakePlayerCopy();
     }
 
     private void LostLive(GameObject gameObject)
     {
+        _onLoseLive.Invoke(0);
         _lives--;
         if(_lives <= 0)
         {
             _onGameOver.Invoke((int) GameOverCodes.Lose);
             _lives = _maxLives;
         }
-        MakePlayerCopy();
+        SavePlayer();
         RespawnPlayer();
 
     }
@@ -76,6 +79,7 @@ public class PlayerLifes : MonoBehaviour
     private void MakePlayerCopy()
     {
         _playerCopy = Instantiate(_activePlayer, _copyLocation.position, Quaternion.identity);
+        _playerCopy.gameObject.name = _playerCopyName;
         _playerCopy.gameObject.SetActive(false);
         _playerCopy.Health.Heal(1000);
         _playerCopy.Shield.Heal(1000);

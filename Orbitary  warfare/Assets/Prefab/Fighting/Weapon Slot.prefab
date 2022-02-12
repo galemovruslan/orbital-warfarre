@@ -43,4 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac62a5c71a82ae844a61a0a2fc16aa4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weapon: {fileID: 0}
+  _layoutProgression: {fileID: 0}
+  _level: 0
+  _weapons: []
+  _onLevelUp: {fileID: 0}
+  _onFire: {fileID: 0}
