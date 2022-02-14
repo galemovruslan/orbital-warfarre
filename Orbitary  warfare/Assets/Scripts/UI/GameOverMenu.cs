@@ -6,15 +6,15 @@ using System;
 
 public class GameOverMenu : MonoBehaviour
 {
-    /*
-    [SerializeField] private TextMeshProUGUI _accuracyText;
-    [SerializeField] private TextMeshProUGUI _timeText;
-    [SerializeField] private TextMeshProUGUI _shipDestroyedText;
-    */
     [SerializeField] private EventAsset _pauseRequest;
     [SerializeField] private EventAsset _retryRequest;
     [SerializeField] private EventAsset _onGameOver;
     [SerializeField] private EventAsset _timePlayedStatistics;
+    [SerializeField] private GameOverCodes _gameOverCodeHandler;
+
+    private const string _loseText = "You Lose";
+    private const string _winText = "You Win!";
+
 
     private void Start()
     {
@@ -35,7 +35,8 @@ public class GameOverMenu : MonoBehaviour
 
     private void GameOverHandler(int code)
     {
-        if (code != (int)GameOverCodes.Lose) { return; }
+        if (code != (int)_gameOverCodeHandler) { return; }
+        
 
         _pauseRequest.Invoke((int)GamePauseRequestType.Pause);
         gameObject.SetActive(true);

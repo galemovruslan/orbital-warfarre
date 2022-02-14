@@ -7,9 +7,57 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 553087547370869656, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843421212089927136, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826791672099931213, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
+      propertyPath: _gameOverCodeHandler
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4228464826235908911, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
       propertyPath: m_Name
-      value: Game Over Menu
+      value: Win Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088785978894538105, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
+      propertyPath: m_Spacing
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088785978894538105, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5564329907391953767, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
+      propertyPath: m_text
+      value: You Win!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157309508129450041, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8672024765977782434, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
+      propertyPath: m_Text
+      value: Start again
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764656510000231045, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764656510000231045, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764656510000231045, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764656510000231045, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 8800962697587886840, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
       propertyPath: m_RootOrder
@@ -54,6 +102,10 @@ PrefabInstance:
     - target: {fileID: 8800962697587886840, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8945701025908535004, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 213fa9ae65e353c41956f1765febd41e, type: 3}

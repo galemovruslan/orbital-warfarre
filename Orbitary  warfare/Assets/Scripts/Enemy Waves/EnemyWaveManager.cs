@@ -30,6 +30,7 @@ public class EnemyWaveManager : MonoBehaviour
 
     private void Update()
     {
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.E))
         {
             SpawnWave();
@@ -38,6 +39,7 @@ public class EnemyWaveManager : MonoBehaviour
         {
             WipeWave();
         }
+#endif
         UpdateTimer();
     }
     private void OnRequestRetryHandler(int obj)

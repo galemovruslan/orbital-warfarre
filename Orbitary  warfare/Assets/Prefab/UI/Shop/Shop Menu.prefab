@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 8784974369996849437}
   - component: {fileID: 8784974369996849436}
   - component: {fileID: 8784974369996849439}
+  - component: {fileID: 1231190894}
   m_Layer: 0
   m_Name: Buy Button
   m_TagString: Untagged
@@ -211,6 +212,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1231190894}
+        m_TargetAssemblyTypeName: SoundMaker, Assembly-CSharp
+        m_MethodName: PlayClip
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1231190894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8784974369996849425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b3758de8ece6e43aa988dd5dd64998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: b223a545970c25c47bc778687eedbea0, type: 3}
+  _playRequest: {fileID: 11400000, guid: 589f18d51eb46cc4c932dd509629969c, type: 2}
 --- !u!1 &8784974370181178999
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.63456744, g: 0.8679245, b: 0.63699275, a: 0.392}
+  m_Color: {r: 0.63456744, g: 0.8679245, b: 0.63699275, a: 0.79607844}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -498,6 +525,7 @@ GameObject:
   - component: {fileID: 8784974370859221237}
   - component: {fileID: 8784974370859221236}
   - component: {fileID: 8784974370859221239}
+  - component: {fileID: 2145295832}
   m_Layer: 0
   m_Name: Close Button
   m_TagString: Untagged
@@ -619,6 +647,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2145295832}
+        m_TargetAssemblyTypeName: SoundMaker, Assembly-CSharp
+        m_MethodName: PlayClip
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2145295832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8784974370859221225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b3758de8ece6e43aa988dd5dd64998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: b223a545970c25c47bc778687eedbea0, type: 3}
+  _playRequest: {fileID: 11400000, guid: 589f18d51eb46cc4c932dd509629969c, type: 2}
 --- !u!1 &8784974370964908332
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,7 +1435,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: fd729abf103805c4aac6eb4f38ee8faa, type: 2}
     - target: {fileID: 6218841812872702518, guid: a8528d5a6109c60459cea18a6e487c51, type: 3}
       propertyPath: _isLimited
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6218841813592549543, guid: a8528d5a6109c60459cea18a6e487c51, type: 3}
       propertyPath: m_text

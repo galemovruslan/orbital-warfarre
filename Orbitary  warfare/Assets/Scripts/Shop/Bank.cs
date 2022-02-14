@@ -26,6 +26,7 @@ public class Bank : MonoBehaviour
         OnChange = null;
     }
 
+#if UNITY_EDITOR
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
@@ -33,7 +34,7 @@ public class Bank : MonoBehaviour
             Add(50);
         }
     }
-
+#endif
     public bool CheckAvailable(int value)
     {
         return _moneyAmount >= value;

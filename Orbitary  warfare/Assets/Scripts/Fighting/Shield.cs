@@ -24,6 +24,8 @@ public class Shield : MonoBehaviour, IDamageable, IHaveShooterType, ISwapProgres
         }
     }
 
+    public float Durability { get => _durability;}
+
     [SerializeField] private ProgressionItem _currentStock;
     [SerializeField] private int _level;
     [SerializeField] private EventAsset OnLevelUp;
